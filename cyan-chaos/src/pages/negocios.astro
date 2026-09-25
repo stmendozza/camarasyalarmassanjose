@@ -1,13 +1,51 @@
 ---
-import PageLayout from '../layouts/PageLayout.astro';
+import BaseLayout from '../layouts/BaseLayout.astro';
+import PageHero from '../components/PageHero.astro';
+import FaqList from '../components/FaqList.astro';
+import CtaBand from '../components/CtaBand.astro';
 import { getPageMeta } from '../data/pages-meta';
+import { getCollection } from 'astro:content';
+
+const meta = getPageMeta('negocios');
+const faqs = (await getCollection('faqs')).filter((entry) => entry.data.pageSlugs.includes('negocios'));
 ---
 
-<PageLayout
-	title={getPageMeta('negocios').title}
-	description={getPageMeta('negocios').description}
-	h1={getPageMeta('negocios').h1}
-	pathname="/negocios"
->
-	<p class="text-slate">Landing negocios — Fase 5.</p>
-</PageLayout>
+<BaseLayout title={meta.title} description={meta.description} pathname="/negocios">
+	<PageHero
+		crumb="Negocios"
+		h1={meta.h1}
+		lead="Vigilancia para tiendas, restaurantes, talleres y oficinas: inventario, caja y accesos, con soporte en la ciudad."
+		secondaryLabel="Ver cámaras"
+		secondaryHref="/camaras-de-seguridad#negocios"
+	/>
+
+	<section class="section">
+		<div class="wrap">
+			<div class="section-head">
+				<p class="kicker">En el local</p>
+				<h2>Dónde suele hacer falta</h2>
+			</div>
+			<div class="service-grid">
+				<a class="service-link" href="/camaras-de-seguridad#negocios">
+					<h3>Cámaras</h3>
+					<p>Fachada, mostrador, bodega y pasillos. Domo, bala o PTZ según el área.</p>
+				</a>
+				<a class="service-link" href="/alarmas">
+					<h3>Alarmas</h3>
+					<p>Sensores para cuando el local está cerrado.</p>
+				</a>
+				<a class="service-link" href="/instalacion">
+					<h3>Instalación</h3>
+					<p>Montaje pensado para no frenar la operación del negocio.</p>
+				</a>
+				<a class="service-link" href="/mantenimiento">
+					<h3>Mantenimiento</h3>
+					<p>Revisión para que el sistema no falle en horario de trabajo.</p>
+				</a>
+			</div>
+		</div>
+	</section>
+
+	<FaqList entries={faqs} />
+	<CtaBand title="Cotiza para tu negocio" text="Indica el tipo de local y qué quieres vigilar. Respondemos por WhatsApp." />
+</BaseLayout>

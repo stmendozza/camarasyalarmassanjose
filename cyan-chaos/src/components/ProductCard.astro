@@ -1,0 +1,35 @@
+---
+interface Spec {
+	label: string;
+	value: string;
+}
+
+interface Props {
+	name: string;
+	typeLabel: string;
+	visual: string;
+	specs: Spec[];
+}
+
+const { name, typeLabel, visual, specs } = Astro.props;
+---
+
+<article class="product">
+	<div class="product-visual">{visual}</div>
+	<div class="product-body">
+		<p class="type">Tipo · {typeLabel}</p>
+		<h3>{name}</h3>
+		{
+			specs.length > 0 && (
+				<dl>
+					{specs.map((spec) => (
+						<>
+							<dt>{spec.label}</dt>
+							<dd>{spec.value}</dd>
+						</>
+					))}
+				</dl>
+			)
+		}
+	</div>
+</article>

@@ -1,23 +1,44 @@
 ---
-import PageLayout from '../layouts/PageLayout.astro';
+import BaseLayout from '../layouts/BaseLayout.astro';
+import ContactForm from '../components/ContactForm.astro';
 import { getPageMeta } from '../data/pages-meta';
 import { site } from '../data/site';
 
 const meta = getPageMeta('contacto');
 ---
 
-<PageLayout title={meta.title} description={meta.description} h1={meta.h1} pathname="/contacto">
-	<p class="text-slate">
-		Formulario externo (Formspree/Web3Forms) — Fase 5. Mientras tanto, usa WhatsApp:
-	</p>
-	<p class="mt-4">
-		<a
-			href={site.whatsappUrl}
-			class="font-semibold text-navy-mid underline hover:text-gold"
-			target="_blank"
-			rel="noopener noreferrer"
-		>
-			{site.phoneDisplay}
-		</a>
-	</p>
-</PageLayout>
+<BaseLayout title={meta.title} description={meta.description} pathname="/contacto">
+	<header class="page-hero">
+		<div class="wrap">
+			<p class="crumb"><a href="/">Inicio</a> / Contacto</p>
+			<h1>{meta.h1}</h1>
+			<p>WhatsApp es el canal más rápido. También puedes dejar tus datos y continuar la conversación ahí.</p>
+		</div>
+	</header>
+
+	<section class="section">
+		<div class="wrap contact-grid">
+			<div>
+				<div class="section-head">
+					<p class="kicker">Canales</p>
+					<h2>Habla con nosotros</h2>
+				</div>
+				<div class="contact-channels">
+					<a href={site.whatsappUrl} target="_blank" rel="noopener noreferrer">
+						WhatsApp
+						<small>{site.phoneDisplay} — respuesta preferente</small>
+					</a>
+					<a href={`mailto:${site.email}`}>
+						Correo
+						<small>{site.email}</small>
+					</a>
+					<p>
+						<strong>{site.city}</strong><br />
+						<small>La visita se coordina por WhatsApp. Cada sistema se revisa antes de definir el alcance.</small>
+					</p>
+				</div>
+			</div>
+			<ContactForm />
+		</div>
+	</section>
+</BaseLayout>

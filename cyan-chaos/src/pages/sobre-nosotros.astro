@@ -1,13 +1,50 @@
 ---
-import PageLayout from '../layouts/PageLayout.astro';
+import BaseLayout from '../layouts/BaseLayout.astro';
+import PageHero from '../components/PageHero.astro';
+import CtaBand from '../components/CtaBand.astro';
 import { getPageMeta } from '../data/pages-meta';
+import { site } from '../data/site';
+
+const meta = getPageMeta('sobre-nosotros');
 ---
 
-<PageLayout
-	title={getPageMeta('sobre-nosotros').title}
-	description={getPageMeta('sobre-nosotros').description}
-	h1={getPageMeta('sobre-nosotros').h1}
-	pathname="/sobre-nosotros"
->
-	<p class="text-slate">Historia y E-E-A-T local — Fase 5.</p>
-</PageLayout>
+<BaseLayout title={meta.title} description={meta.description} pathname="/sobre-nosotros">
+	<PageHero
+		crumb="Nosotros"
+		h1={meta.h1}
+		lead={`${site.brandName} instala, configura y mantiene cámaras y alarmas en ${site.city}.`}
+		secondaryLabel="Contacto"
+	/>
+
+	<section class="section">
+		<div class="wrap">
+			<div class="section-head">
+				<p class="kicker">Local</p>
+				<h2>Quién responde</h2>
+			</div>
+			<div class="split">
+				<div class="panel">
+					<h3>Soporte en la ciudad</h3>
+					<p>
+						La instalación y el mantenimiento se atienden en {site.city}, no desde un call center de otra
+						ciudad. Si la app o una cámara falla, puedes escribir al WhatsApp {site.phoneDisplay}.
+					</p>
+				</div>
+				<div class="panel">
+					<h3>Qué hacemos</h3>
+					<p>
+						Cámaras de vigilancia, alarmas inteligentes, monitoreo en vivo desde el celular e instalación
+						profesional. Envíos y servicio en la zona, según disponibilidad al cotizar.
+					</p>
+				</div>
+			</div>
+			<p style="margin-top: 1.5rem">
+				<a href="/cobertura">Ver cobertura</a>
+				{' · '}
+				<a href="/contacto">Contacto</a>
+			</p>
+		</div>
+	</section>
+
+	<CtaBand title="Hablemos de tu caso" text="WhatsApp es el canal directo con el equipo local." />
+</BaseLayout>

@@ -1,18 +1,57 @@
 ---
-import PageLayout from '../layouts/PageLayout.astro';
+import BaseLayout from '../layouts/BaseLayout.astro';
+import PageHero from '../components/PageHero.astro';
+import FaqList from '../components/FaqList.astro';
+import CtaBand from '../components/CtaBand.astro';
 import { getPageMeta } from '../data/pages-meta';
-import { getEntry } from 'astro:content';
+import { getCollection } from 'astro:content';
 
 const meta = getPageMeta('instalacion');
-const service = await getEntry('services', 'instalacion');
+const faqs = (await getCollection('faqs')).filter((entry) => entry.data.pageSlugs.includes('instalacion'));
 ---
 
-<PageLayout
-	title={meta.title}
-	description={meta.description}
-	h1={meta.h1}
-	lead={service?.data.summary}
-	pathname="/instalacion"
->
-	<p class="text-slate">Proceso de instalación — Fase 5.</p>
-</PageLayout>
+<BaseLayout title={meta.title} description={meta.description} pathname="/instalacion">
+	<PageHero
+		crumb="Instalación"
+		h1={meta.h1}
+		lead="Dejamos cámaras y alarmas listas para usar, con explicación de la app y soporte en San José del Guaviare."
+	/>
+
+	<section class="section">
+		<div class="wrap">
+			<div class="section-head">
+				<p class="kicker">Proceso</p>
+				<h2>Cómo trabajamos</h2>
+				<p>Sin precios publicados: el alcance se cotiza por WhatsApp según el lugar.</p>
+			</div>
+			<ol class="steps">
+				<li>
+					<strong>Cuéntanos el espacio.</strong>
+					<p>Casa o negocio, qué quieres vigilar y si ya tienes equipos.</p>
+				</li>
+				<li>
+					<strong>Proponemos el sistema.</strong>
+					<p>Tipo de cámaras, sensores y si hace falta monitoreo desde el celular.</p>
+				</li>
+				<li>
+					<strong>Instalamos y configuramos.</strong>
+					<p>Montaje, prueba y explicación de la app en el sitio.</p>
+				</li>
+				<li>
+					<strong>Seguimos cerca.</strong>
+					<p>Soporte técnico local y mantenimiento cuando lo necesites.</p>
+				</li>
+			</ol>
+			<p style="margin-top: 1.5rem">
+				<a href="/camaras-de-seguridad">Cámaras</a>
+				{' · '}
+				<a href="/alarmas">Alarmas</a>
+				{' · '}
+				<a href="/mantenimiento">Mantenimiento</a>
+			</p>
+		</div>
+	</section>
+
+	<FaqList entries={faqs} />
+	<CtaBand title="Agenda una cotización" text="Escríbenos qué quieres proteger y te respondemos por WhatsApp." />
+</BaseLayout>

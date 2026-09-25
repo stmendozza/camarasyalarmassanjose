@@ -20,4 +20,4 @@ App estática (Fase 4). Diseño canon: `../DESIGN.md` · prototipo: `../prototyp
 
 ## Deploy
 
-Build: `npm run build`. Config lista para Cloudflare Pages (`wrangler.toml`), Netlify o Vercel. Actualizar `siteUrl` en `src/data/site.ts` y `astro.config.mjs` al publicar dominio final.
+Build: `npm run build`. Producción: `https://camarasyalarmassanjose.lat` (Vercel). `siteUrl` vive en `src/data/site.ts` y `astro.config.mjs`.

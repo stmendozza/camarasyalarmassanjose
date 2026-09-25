@@ -1,13 +1,51 @@
 ---
-import PageLayout from '../layouts/PageLayout.astro';
+import BaseLayout from '../layouts/BaseLayout.astro';
+import PageHero from '../components/PageHero.astro';
+import FaqList from '../components/FaqList.astro';
+import CtaBand from '../components/CtaBand.astro';
 import { getPageMeta } from '../data/pages-meta';
+import { getCollection } from 'astro:content';
+
+const meta = getPageMeta('hogar');
+const faqs = (await getCollection('faqs')).filter((entry) => entry.data.pageSlugs.includes('hogar'));
 ---
 
-<PageLayout
-	title={getPageMeta('hogar').title}
-	description={getPageMeta('hogar').description}
-	h1={getPageMeta('hogar').h1}
-	pathname="/hogar"
->
-	<p class="text-slate">Landing hogar — Fase 5.</p>
-</PageLayout>
+<BaseLayout title={meta.title} description={meta.description} pathname="/hogar">
+	<PageHero
+		crumb="Hogar"
+		h1={meta.h1}
+		lead="Cámaras y alarmas para la casa, con app para ver en vivo y soporte técnico en San José del Guaviare."
+		secondaryLabel="Ver cámaras"
+		secondaryHref="/camaras-de-seguridad#hogar"
+	/>
+
+	<section class="section">
+		<div class="wrap">
+			<div class="section-head">
+				<p class="kicker">En casa</p>
+				<h2>Qué suele protegerse</h2>
+			</div>
+			<div class="service-grid">
+				<a class="service-link" href="/camaras-de-seguridad#hogar">
+					<h3>Cámaras</h3>
+					<p>Entrada, patio y zonas comunes, con visión nocturna.</p>
+				</a>
+				<a class="service-link" href="/alarmas">
+					<h3>Alarmas</h3>
+					<p>Sensores de puerta, ventana y movimiento.</p>
+				</a>
+				<a class="service-link" href="/instalacion">
+					<h3>Instalación</h3>
+					<p>Montaje y configuración de la app en tu celular.</p>
+				</a>
+				<a class="service-link" href="/mantenimiento">
+					<h3>Mantenimiento</h3>
+					<p>Revisión local si el sistema deja de responder.</p>
+				</a>
+			</div>
+		</div>
+	</section>
+
+	<FaqList entries={faqs} />
+	<CtaBand title="Cotiza para tu hogar" text="Cuéntanos cuántos accesos quieres cubrir y te orientamos por WhatsApp." />
+</BaseLayout>

@@ -1,6 +1,6 @@
 ---
 title: Instalación profesional
-summary: Instalación de cámaras y alarmas con soporte técnico local.
+summary: Profesional, incluida en el servicio.
 intentKeywords:
   - instalación de cámaras San José del Guaviare
   - instalación de alarmas San José del Guaviare

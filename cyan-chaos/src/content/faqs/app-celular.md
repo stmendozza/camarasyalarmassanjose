@@ -1,9 +1,12 @@
 ---
-question: ¿Las cámaras incluyen app para ver desde el celular?
+question: ¿Puedo ver las cámaras desde el celular?
 pageSlugs:
   - home
   - camaras-de-seguridad
-order: 1
+  - alarmas
+  - hogar
+  - negocios
+order: 2
 ---
 
-Sí. Los equipos que instalamos incluyen monitoreo en vivo desde el celular con app incluida, según el paquete acordado.
+Sí. El monitoreo en vivo desde el celular viene con app incluida, como en el material de la marca.

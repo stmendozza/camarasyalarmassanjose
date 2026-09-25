@@ -10,15 +10,18 @@
 | 2 | Arquitectura de información y SEO técnico | ✅ Completada | 100% |
 | 3 | Diseño UI/UX (wireframes + sistema visual) | ✅ Completada | 100% |
 | 4 | Setup del proyecto Astro (base técnica) | ✅ Completada | 100% |
-| 5 | Maquetado de secciones y contenido | ⬜ Pendiente | 0% |
-| 6 | SEO on-page + datos estructurados | ⬜ Pendiente | 0% |
+| 5 | Maquetado de secciones y contenido | 🔄 Revisión UI | 90% |
+| 6 | SEO on-page + datos estructurados | ⬜ Bloqueada por UI | 0% |
 | 7 | QA, performance y accesibilidad | ⬜ Pendiente | 0% |
 | 8 | Despliegue, indexación y monitoreo | ⬜ Pendiente | 0% |
 
-**Avance global del proyecto: 50%** (4 de 8 fases cerradas; Fase 5 siguiente)
+**Avance global del proyecto: 50%** (Fases 1–4 cerradas; Fase 5 reabierta por cambio de dirección visual; Fase 6 no inicia)
+
+**Dominio de producción:** `https://camarasyalarmassanjose.lat` (Vercel)
 
 **Marca confirmada:** Cámaras y Alarmas San José  
-**Prototipo F3:** aprobado 2026-09-25 → `prototypes/fase-03/`  
+**UI vigente:** sistema oscuro editorial, referencia [guarav.polsia.io](https://guarav.polsia.io/) → `DESIGN.md` + `docs/fase-05/01-auditoria-ui.md`  
+**Prototipo F3 (archivado):** navy/dorado → `prototypes/fase-03/`  
 **Entregables:** `docs/fase-02/`, `docs/fase-03/`, `DESIGN.md` · **Skills:** `SKILLS.md`
 
 > Regla de actualización: cada fase se marca `✅ Completada` solo cuando su checklist interno (secciones 9.x) está 100% verificado. No se avanza de fase con pendientes abiertos, salvo que el cliente los acepte explícitamente por escrito (ver `client-work-practices`: alcance cerrado por fase antes de iniciar).
@@ -159,13 +162,15 @@ Términos a construir relevancia temática y geográfica (todos con intención l
 
 ## 7. Patrones de Diseño UI/UX Recomendados
 
-- **Above the fold orientado a conversión:** propuesta de valor + CTA WhatsApp visible sin scroll, igual que el flyer pero mejor jerarquizado que el sitio actual.
-- **Segmentación visual hogar/negocio:** dos rutas de entrada claras desde el home (tarjetas o toggle), reflejando el mismo mensaje del flyer ("Protege tu hogar o negocio").
-- **Catálogo de equipos con foco en confianza técnica:** tarjetas de producto por tipo de cámara/sensor con especificaciones simples (resolución, visión nocturna, uso recomendado), aprovechando las fotos reales del flyer/local.
-- **Prueba social:** bloque de reseñas de Google (una vez auditado el GBP), sello de "soporte técnico local" como diferenciador.
-- **Micro-conversión constante:** botón flotante de WhatsApp en todas las páginas (patrón ya validado en el sitio actual, mantenerlo).
-- **Diseño mobile-first:** el flyer y el canal principal (WhatsApp) indican que la mayoría del tráfico será móvil.
-- **Paleta y tono:** navy/dorado del flyer — canon en `DESIGN.md` (Fase 3).
+Dirección visual sustituida el 2026-09-25. Canon: `DESIGN.md`. Auditoría: `docs/fase-05/01-auditoria-ui.md`. Referencia de parecido: [guarav.polsia.io](https://guarav.polsia.io/).
+
+- **Fondo continuo oscuro** (verde bosque casi negro), grotesca grande con tracking negativo, un solo panel lima.
+- **Home al ritmo del referente:** hero con ilustración de línea, filas de servicio 01–04, panel `03.` de mantenimiento, cierre WhatsApp + correo.
+- **Marca en UI:** Cámaras y Alarmas San José. No mostrar “Guaraví”.
+- **Sitemap se conserva.** Hogar y negocio siguen como páginas; salen de la home la puerta dual y el catálogo de recuadros vacíos.
+- **Sin copy interno** (placeholders, fases, bloqueantes) visible para el visitante.
+- **WhatsApp** `315 884 2167` como acción primaria, píldora en el header.
+- **Mobile-first.** Contraste AA. Reseñas y mapa solo cuando existan datos reales (B2).
 
 ---
 
@@ -205,12 +210,15 @@ Términos a construir relevancia temática y geográfica (todos con intención l
 - [x] Colecciones de contenido (loaders glob) + rutas MVP del sitemap
 - [x] Configuración de despliegue (Cloudflare Pages / Netlify / Vercel) → `wrangler.toml`, `netlify.toml`, `vercel.json`, `public/_headers`
 
-### Fase 5 — Maquetado y contenido — 0%
-- [ ] Home
-- [ ] Páginas de servicio (cámaras, alarmas, instalación, mantenimiento)
-- [ ] Páginas hogar/negocio
-- [ ] Página de cobertura
-- [ ] Formulario de contacto
+### Fase 5 — Maquetado y contenido — 🔄 revisión UI
+Estructura de páginas hecha. La piel navy/dorado queda archivada. Falta el sistema de `DESIGN.md`.
+
+- [x] Rutas y contenido base (home, servicios, hogar/negocio, cobertura, contacto)
+- [x] Sistema visual oscuro editorial (tokens, Geist, header, filas, panel lima)
+- [x] Home recompuesta al ritmo de guarav.polsia.io, sin notas internas ni catálogo placeholder
+- [x] Páginas internas con la misma piel (sin page-hero navy)
+- [x] Ilustración de línea de cámara en el hero
+- [ ] Aprobación visual del cliente antes de Fase 6
 
 ### Fase 6 — SEO on-page — 0%
 - [ ] Títulos y meta descriptions por página
@@ -239,5 +247,6 @@ Términos a construir relevancia temática y geográfica (todos con intención l
 ### Gate de fase
 
 - ~~Cerrar Fase 2~~ ✅ · ~~Cerrar Fase 3~~ ✅ (prototipo aprobado 2026-09-25)
-- ~~Cerrar Fase 4~~ ✅ — scaffolding en `cyan-chaos/` (`npm run build` OK).
-- **En curso: Fase 5** — maquetado según prototipo F3 + copy desde colecciones.
+- ~~Cerrar Fase 4~~ ✅ — scaffolding en `cyan-chaos/`. Dominio `https://camarasyalarmassanjose.lat`.
+- **En curso: Fase 5 (revisión UI)** — piel oscura implementada en `cyan-chaos/`. Marca en pantalla: Cámaras y Alarmas San José. Falta tu visto bueno visual.
+- Fase 6 no empieza hasta esa aprobación.

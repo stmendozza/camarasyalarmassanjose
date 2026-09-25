@@ -1,6 +1,6 @@
 ---
 title: Cámaras de seguridad
-summary: Cámaras bala, domo y PTZ con monitoreo desde el celular.
+summary: HD, visión nocturna y app incluida.
 intentKeywords:
   - cámaras de seguridad San José del Guaviare
   - cámaras de vigilancia San José del Guaviare

@@ -1,18 +1,108 @@
 ---
-import PageLayout from '../layouts/PageLayout.astro';
+import BaseLayout from '../layouts/BaseLayout.astro';
+import PageHero from '../components/PageHero.astro';
+import ProductCard from '../components/ProductCard.astro';
+import FaqList from '../components/FaqList.astro';
+import CtaBand from '../components/CtaBand.astro';
 import { getPageMeta } from '../data/pages-meta';
-import { getEntry } from 'astro:content';
+import { productTypeLabel } from '../data/product-labels';
+import { getCollection } from 'astro:content';
 
 const meta = getPageMeta('camaras-de-seguridad');
-const service = await getEntry('services', 'camaras-de-seguridad');
+const cameraTypes = ['bala', 'domo', 'ptz'] as const;
+const products = (await getCollection('products'))
+	.filter((entry) => cameraTypes.includes(entry.data.type as (typeof cameraTypes)[number]))
+	.sort((a, b) => a.data.order - b.data.order);
+const faqs = (await getCollection('faqs')).filter((entry) =>
+	entry.data.pageSlugs.includes('camaras-de-seguridad'),
+);
 ---
 
-<PageLayout
-	title={meta.title}
-	description={meta.description}
-	h1={meta.h1}
-	lead={service?.data.summary}
-	pathname="/camaras-de-seguridad"
->
-	<p class="text-slate">Contenido y catálogo de productos — Fase 5.</p>
-</PageLayout>
+<BaseLayout title={meta.title} description={meta.description} pathname="/camaras-de-seguridad">
+	<PageHero crumb="Cámaras" h1={meta.h1} lead="Instalación profesional, monitoreo en vivo con app y soporte técnico local para hogar y negocio." />
+
+	<section class="section">
+		<div class="wrap">
+			<div class="section-head">
+				<p class="kicker">Equipos</p>
+				<h2>Tipos de cámara</h2>
+				<p>Bala, domo y PTZ — te ayudamos a elegir según el espacio.</p>
+			</div>
+			<div class="product-grid">
+				{
+					products.map((product) => (
+						<ProductCard
+							name={product.data.name}
+							typeLabel={productTypeLabel[product.data.type]}
+							visual={productTypeLabel[product.data.type]}
+							specs={
+								product.data.useCase
+									? [{ label: 'Ideal', value: product.data.useCase }]
+									: product.data.specs
+							}
+						/>
+					))
+				}
+			</div>
+		</div>
+	</section>
+
+	<section class="section" style="padding-top: 0">
+		<div class="wrap">
+			<div class="section-head">
+				<p class="kicker">Públicos</p>
+				<h2>Hogar y negocio</h2>
+				<p>Misma calidad de equipo; distinta recomendación de uso.</p>
+			</div>
+			<div class="split">
+				<div class="panel" id="hogar">
+					<h3>Para el hogar</h3>
+					<p>
+						Entradas, patios y zonas comunes. App para ver en vivo y alarmas con sensores de puerta y
+						movimiento.
+					</p>
+				</div>
+				<div class="panel" id="negocios">
+					<h3>Para el negocio</h3>
+					<p>
+						Inventario, caja y accesos. Cobertura diurna y nocturna, y mantenimiento para no interrumpir
+						la operación.
+					</p>
+				</div>
+			</div>
+			<p style="margin-top: 1.25rem">
+				<a href="/hogar">Ver soluciones para el hogar</a>
+				{' · '}
+				<a href="/negocios">Ver soluciones para negocios</a>
+				{' · '}
+				<a href="/instalacion">Cómo instalamos</a>
+			</p>
+		</div>
+	</section>
+
+	<section class="section" style="padding-top: 0">
+		<div class="wrap">
+			<div class="section-head">
+				<p class="kicker">App</p>
+				<h2>Monitoreo desde el celular</h2>
+				<p>App incluida — vigila en vivo cuando lo necesites.</p>
+			</div>
+			<div class="panel">
+				<h3>Cómo funciona</h3>
+				<p>
+					Tras la instalación te dejamos el sistema configurado y te explicamos el uso de la app. Si algo
+					falla, el soporte es local en San José del Guaviare.
+				</p>
+			</div>
+		</div>
+	</section>
+
+	<FaqList entries={faqs} />
+	<CtaBand
+		title="Cotiza tus cámaras"
+		text="Cuéntanos si es hogar o negocio y te respondemos por WhatsApp."
+		primaryLabel="Escribir ahora"
+		secondaryHref="/"
+		secondaryLabel="Volver al inicio"
+	/>
+</BaseLayout>

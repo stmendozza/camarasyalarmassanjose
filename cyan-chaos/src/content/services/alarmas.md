@@ -1,6 +1,6 @@
 ---
 title: Alarmas inteligentes
-summary: Paneles, sensores y alertas en tiempo real para hogar y negocio.
+summary: Sensores, paneles e inteligentes.
 intentKeywords:
   - alarmas San José del Guaviare
 audience: ambos

@@ -1,6 +1,6 @@
 ---
 title: Mantenimiento de cámaras
-summary: Mantenimiento preventivo y correctivo de sistemas de vigilancia.
+summary: Preventivo y correctivo local.
 intentKeywords:
   - mantenimiento de cámaras San José del Guaviare
 audience: ambos

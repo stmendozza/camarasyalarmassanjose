@@ -1,18 +1,21 @@
 export type NavItem = { href: string; label: string };
 
-export const mainNav: NavItem[] = [
-	{ href: '/camaras-de-seguridad', label: 'Cámaras' },
-	{ href: '/alarmas', label: 'Alarmas' },
-	{ href: '/instalacion', label: 'Instalación' },
+/** Barra principal, al ritmo del referente: pocas entradas. */
+export const headerNav: NavItem[] = [
+	{ href: '/sistemas-de-seguridad', label: 'Servicios' },
 	{ href: '/mantenimiento', label: 'Mantenimiento' },
-	{ href: '/cobertura', label: 'Cobertura' },
 	{ href: '/contacto', label: 'Contacto' },
 ];
 
 export const footerNav: NavItem[] = [
-	{ href: '/sistemas-de-seguridad', label: 'Sistemas de seguridad' },
+	{ href: '/camaras-de-seguridad', label: 'Cámaras' },
+	{ href: '/alarmas', label: 'Alarmas' },
+	{ href: '/instalacion', label: 'Instalación' },
+	{ href: '/mantenimiento', label: 'Mantenimiento' },
+	{ href: '/sistemas-de-seguridad', label: 'Sistemas' },
 	{ href: '/hogar', label: 'Hogar' },
 	{ href: '/negocios', label: 'Negocios' },
+	{ href: '/cobertura', label: 'Cobertura' },
 	{ href: '/sobre-nosotros', label: 'Sobre nosotros' },
-	...mainNav,
+	{ href: '/contacto', label: 'Contacto' },
 ];

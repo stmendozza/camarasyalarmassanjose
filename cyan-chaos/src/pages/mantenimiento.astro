@@ -1,18 +1,56 @@
 ---
-import PageLayout from '../layouts/PageLayout.astro';
+import BaseLayout from '../layouts/BaseLayout.astro';
+import PageHero from '../components/PageHero.astro';
+import FaqList from '../components/FaqList.astro';
+import CtaBand from '../components/CtaBand.astro';
 import { getPageMeta } from '../data/pages-meta';
-import { getEntry } from 'astro:content';
+import { getCollection } from 'astro:content';
 
 const meta = getPageMeta('mantenimiento');
-const service = await getEntry('services', 'mantenimiento');
+const faqs = (await getCollection('faqs')).filter((entry) =>
+	entry.data.pageSlugs.includes('mantenimiento'),
+);
 ---
 
-<PageLayout
-	title={meta.title}
-	description={meta.description}
-	h1={meta.h1}
-	lead={service?.data.summary}
-	pathname="/mantenimiento"
->
-	<p class="text-slate">Planes de mantenimiento — Fase 5.</p>
-</PageLayout>
+<BaseLayout title={meta.title} description={meta.description} pathname="/mantenimiento">
+	<PageHero
+		crumb="Mantenimiento"
+		h1={meta.h1}
+		lead="Revisión, limpieza y reparación de cámaras y alarmas en San José del Guaviare, incluso si las instaló otro proveedor."
+	/>
+
+	<section class="section">
+		<div class="wrap">
+			<div class="section-head">
+				<p class="kicker">Servicio</p>
+				<h2>Preventivo y correctivo</h2>
+			</div>
+			<div class="split">
+				<div class="panel">
+					<h3>Preventivo</h3>
+					<p>
+						Revisión periódica para que la imagen, la app y los sensores sigan respondiendo antes de que
+						falle algo en la casa o el local.
+					</p>
+				</div>
+				<div class="panel">
+					<h3>Correctivo</h3>
+					<p>
+						Cuando una cámara no graba, la app no conecta o la alarma no arma, vamos al sitio y lo
+						dejamos funcionando.
+					</p>
+				</div>
+			</div>
+			<p style="margin-top: 1.5rem">
+				<a href="/instalacion">Si aún no tienes sistema, mira la instalación</a>
+			</p>
+		</div>
+	</section>
+
+	<FaqList entries={faqs} />
+	<CtaBand
+		title="Pide una revisión"
+		text="Cuéntanos qué equipo tienes y qué dejó de funcionar."
+		primaryLabel="Escribir ahora"
+	/>
+</BaseLayout>

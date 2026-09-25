@@ -1,0 +1,36 @@
+---
+import { render, type CollectionEntry } from 'astro:content';
+
+interface Props {
+	entries: CollectionEntry<'faqs'>[];
+}
+
+const { entries } = Astro.props;
+const items = await Promise.all(
+	[...entries]
+		.sort((a, b) => a.data.order - b.data.order)
+		.map(async (entry) => {
+			const { Content } = await render(entry);
+			return { question: entry.data.question, Content };
+		}),
+);
+---
+
+{
+	items.length > 0 && (
+		<section class="section faq" style="padding-top: 0">
+			<div class="wrap">
+				<div class="section-head">
+					<p class="kicker">FAQ</p>
+					<h2>Preguntas frecuentes</h2>
+				</div>
+				{items.map(({ question, Content }) => (
+					<details>
+						<summary>{question}</summary>
+						<Content />
+					</details>
+				))}
+			</div>
+		</section>
+	)
+}

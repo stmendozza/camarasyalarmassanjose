@@ -1,0 +1,33 @@
+---
+import { site } from '../data/site';
+
+interface Props {
+	crumb: string;
+	h1: string;
+	lead: string;
+	secondaryHref?: string;
+	secondaryLabel?: string;
+}
+
+const {
+	crumb,
+	h1,
+	lead,
+	secondaryHref = '/contacto',
+	secondaryLabel = 'Formulario',
+} = Astro.props;
+---
+
+<header class="page-hero">
+	<div class="wrap">
+		<p class="crumb"><a href="/">Inicio</a> / {crumb}</p>
+		<h1>{h1}</h1>
+		<p>{lead}</p>
+		<div class="btn-row">
+			<a class="btn btn-wa" href={site.whatsappUrl} target="_blank" rel="noopener noreferrer">
+				Cotizar por WhatsApp
+			</a>
+			<a class="btn btn-ghost" href={secondaryHref}>{secondaryLabel}</a>
+		</div>
+	</div>
+</header>

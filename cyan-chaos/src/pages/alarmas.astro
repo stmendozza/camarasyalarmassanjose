@@ -1,18 +1,78 @@
 ---
-import PageLayout from '../layouts/PageLayout.astro';
+import BaseLayout from '../layouts/BaseLayout.astro';
+import PageHero from '../components/PageHero.astro';
+import ProductCard from '../components/ProductCard.astro';
+import FaqList from '../components/FaqList.astro';
+import CtaBand from '../components/CtaBand.astro';
 import { getPageMeta } from '../data/pages-meta';
-import { getEntry } from 'astro:content';
+import { productTypeLabel } from '../data/product-labels';
+import { getCollection } from 'astro:content';
 
 const meta = getPageMeta('alarmas');
-const service = await getEntry('services', 'alarmas');
+const alarmTypes = ['panel', 'sensor-puerta', 'sensor-movimiento'] as const;
+const products = (await getCollection('products'))
+	.filter((entry) => alarmTypes.includes(entry.data.type as (typeof alarmTypes)[number]))
+	.sort((a, b) => a.data.order - b.data.order);
+const faqs = (await getCollection('faqs')).filter((entry) => entry.data.pageSlugs.includes('alarmas'));
 ---
 
-<PageLayout
-	title={meta.title}
-	description={meta.description}
-	h1={meta.h1}
-	lead={service?.data.summary}
-	pathname="/alarmas"
->
-	<p class="text-slate">Contenido de alarmas y sensores — Fase 5.</p>
-</PageLayout>
+<BaseLayout title={meta.title} description={meta.description} pathname="/alarmas">
+	<PageHero
+		crumb="Alarmas"
+		h1={meta.h1}
+		lead="Sensores, paneles y alertas para proteger casa o local, con instalación y soporte en San José del Guaviare."
+	/>
+
+	<section class="section">
+		<div class="wrap">
+			<div class="section-head">
+				<p class="kicker">Equipos</p>
+				<h2>Qué incluye una alarma</h2>
+				<p>Panel de control y sensores de puerta o movimiento, según el espacio.</p>
+			</div>
+			<div class="product-grid">
+				{
+					products.map((product) => (
+						<ProductCard
+							name={product.data.name}
+							typeLabel={productTypeLabel[product.data.type]}
+							visual={productTypeLabel[product.data.type]}
+							specs={product.data.specs}
+						/>
+					))
+				}
+			</div>
+		</div>
+	</section>
+
+	<section class="section" style="padding-top: 0">
+		<div class="wrap">
+			<div class="section-head">
+				<p class="kicker">Uso</p>
+				<h2>Hogar o negocio</h2>
+			</div>
+			<div class="split">
+				<div class="panel">
+					<h3>En casa</h3>
+					<p>Puertas, ventanas y zonas de paso. Aviso cuando alguien abre un acceso o se mueve dentro.</p>
+				</div>
+				<div class="panel">
+					<h3>En el local</h3>
+					<p>Accesos, bodega y áreas fuera de horario. Se combina con cámaras si quieres ver qué pasó.</p>
+				</div>
+			</div>
+			<p style="margin-top: 1.25rem">
+				<a href="/camaras-de-seguridad">Ver cámaras</a>
+				{' · '}
+				<a href="/instalacion">Instalación</a>
+			</p>
+		</div>
+	</section>
+
+	<FaqList entries={faqs} />
+	<CtaBand
+		title="Cotiza tu alarma"
+		text="Dinos si es casa o local y te proponemos sensores y panel."
+		primaryLabel="Escribir ahora"
+	/>
+</BaseLayout>

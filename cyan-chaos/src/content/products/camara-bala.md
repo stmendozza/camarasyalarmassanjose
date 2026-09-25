@@ -4,8 +4,10 @@ type: bala
 audience: ambos
 specs:
   - label: Uso
-    value: Exterior / interior
+    value: Exteriores / fachada
+  - label: Destacado
+    value: Alta definición y visión nocturna
 featured: true
 order: 1
-useCase: Entradas, fachadas y corredores.
+useCase: Fachadas y perímetro
 ---

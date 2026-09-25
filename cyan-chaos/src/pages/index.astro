@@ -1,80 +1,171 @@
 ---
 import BaseLayout from '../layouts/BaseLayout.astro';
-import PageShell from '../components/PageShell.astro';
+import CameraArt from '../components/CameraArt.astro';
 import { getPageMeta } from '../data/pages-meta';
 import { site } from '../data/site';
-import { getCollection } from 'astro:content';
 
 const meta = getPageMeta('home');
-const services = (await getCollection('services')).sort((a, b) => a.data.order - b.data.order);
 ---
 
 <BaseLayout title={meta.title} description={meta.description} pathname="/">
-	<section class="bg-ink text-white">
-		<div class="mx-auto max-w-(--width-content) px-4 py-16 sm:px-6 md:py-24">
-			<p class="font-display text-sm font-semibold tracking-widest text-gold uppercase">
-				{site.city}
-			</p>
-			<h1 class="mt-3 max-w-3xl font-display text-4xl font-bold tracking-tight uppercase md:text-5xl">
-				{meta.h1}
-			</h1>
-			<p class="mt-4 max-w-xl text-lg text-paper/90">
-				Cámaras, alarmas inteligentes e instalación profesional. Cotiza por WhatsApp.
-			</p>
-			<div class="mt-8 flex flex-wrap gap-3">
-				<a
-					href={site.whatsappUrl}
-					class="rounded-(--radius-brand) bg-wa px-5 py-3 font-semibold text-white hover:brightness-95"
-					target="_blank"
-					rel="noopener noreferrer"
-				>
-					Cotizar por WhatsApp
-				</a>
-				<a
-					href="/contacto"
-					class="rounded-(--radius-brand) border border-gold/60 px-5 py-3 font-semibold text-gold-bright hover:bg-white/5"
-				>
-					Contacto
-				</a>
+	<section class="hero" id="inicio">
+		<div class="wrap">
+			<div>
+				<p class="pill"><i></i> Atención a domicilio</p>
+				<h1>Seguridad bien instalada, lista cuando la necesitas.</h1>
+				<p class="lede">
+					Instalación, configuración, reparación y mantenimiento de cámaras y alarmas a domicilio para
+					hogares y negocios de {site.city} y zonas cercanas.
+				</p>
+				<div class="btn-row">
+					<a class="btn btn-ghost" href="/contacto">Cuéntanos qué necesitas</a>
+					<a class="btn btn-wa" href={site.whatsappUrl} target="_blank" rel="noopener noreferrer">
+						Consultar por WhatsApp
+					</a>
+				</div>
+			</div>
+			<CameraArt />
+		</div>
+	</section>
+
+	<section class="section" id="servicios">
+		<div class="wrap">
+			<div class="section-head">
+				<p class="kicker">Un sistema que sí te sirve</p>
+				<h2>Desde la primera cámara hasta el próximo ajuste.</h2>
+				<p>
+					No todas las instalaciones necesitan lo mismo. Revisamos el espacio, escuchamos lo que buscas y
+					proponemos una solución acorde al uso.
+				</p>
+			</div>
+			<div class="note">
+				<strong>Atención cercana</strong>
+				<p>
+					Hogares, tiendas, restaurantes, talleres y oficinas en {site.city}.
+					<a href="/hogar">Hogar</a>
+					{' · '}
+					<a href="/negocios">Negocios</a>
+				</p>
+			</div>
+			<ol class="rows">
+				<li>
+					<a href="/instalacion">
+						<span class="num">01</span>
+						<svg viewBox="0 0 24 24" width="22" height="22" aria-hidden="true">
+							<path d="M4 18h16M8 18V8l4-3 4 3v10" fill="none" stroke="currentColor" stroke-width="1.5"></path>
+						</svg>
+						<div>
+							<h3>Instalación</h3>
+							<p>Montaje de cámaras y alarmas según el espacio del hogar o del negocio.</p>
+						</div>
+					</a>
+				</li>
+				<li>
+					<a href="/camaras-de-seguridad">
+						<span class="num">02</span>
+						<svg viewBox="0 0 24 24" width="22" height="22" aria-hidden="true">
+							<rect x="3" y="6" width="13" height="10" rx="2" fill="none" stroke="currentColor" stroke-width="1.5"></rect>
+							<path d="M16 10l5-2v8l-5-2z" fill="none" stroke="currentColor" stroke-width="1.5"></path>
+						</svg>
+						<div>
+							<h3>Configuración</h3>
+							<p>Ajuste de DVR y NVR, y orientación para ver el sistema desde el celular.</p>
+						</div>
+					</a>
+				</li>
+				<li>
+					<a href="/mantenimiento">
+						<span class="num">03</span>
+						<svg viewBox="0 0 24 24" width="22" height="22" aria-hidden="true">
+							<path d="M14 6l4 4-8 8H6v-4z" fill="none" stroke="currentColor" stroke-width="1.5"></path>
+						</svg>
+						<div>
+							<h3>Reparación</h3>
+							<p>Diagnóstico de cámaras, grabadores y alarmas que ya tienes.</p>
+						</div>
+					</a>
+				</li>
+				<li>
+					<a href="/mantenimiento">
+						<span class="num">04</span>
+						<svg viewBox="0 0 24 24" width="22" height="22" aria-hidden="true">
+							<circle cx="12" cy="12" r="7" fill="none" stroke="currentColor" stroke-width="1.5"></circle>
+							<path d="M12 9v4l2 2" fill="none" stroke="currentColor" stroke-width="1.5"></path>
+						</svg>
+						<div>
+							<h3>Mantenimiento</h3>
+							<p>Revisión de imagen, conexiones, almacenamiento y grabación.</p>
+						</div>
+					</a>
+				</li>
+			</ol>
+		</div>
+	</section>
+
+	<section class="section" id="mantenimiento">
+		<div class="wrap maint">
+			<div class="lime-panel">
+				<p class="every">Cada</p>
+				<p class="big">03<span>.</span></p>
+				<p>meses, una revisión con propósito.</p>
+				<p>El alcance se define para cada instalación.</p>
+			</div>
+			<div>
+				<div class="section-head">
+					<p class="kicker">Cuidado preventivo</p>
+					<h2>Que la grabación y el acceso sigan respondiendo.</h2>
+					<p>
+						Una visita puede incluir limpieza, revisión de imagen y conexiones, pruebas de grabación y
+						verificación del acceso desde el celular.
+					</p>
+				</div>
+				<ul class="checks">
+					<li>Imagen, limpieza y visión nocturna</li>
+					<li>Conectores, fuentes y cableado visible</li>
+					<li>DVR, NVR, disco y estado de grabación</li>
+					<li>Fecha, hora y acceso desde el celular</li>
+				</ul>
+				<p style="margin-top: 1.25rem">
+					<a class="btn btn-ghost" href="/mantenimiento">Consultar por mantenimiento</a>
+				</p>
 			</div>
 		</div>
 	</section>
 
-	<section class="border-b border-gold/30 bg-navy text-white" aria-labelledby="audiencia">
-		<div class="mx-auto grid max-w-(--width-content) md:grid-cols-2">
-			<a
-				id="audiencia"
-				href="/hogar"
-				class="group border-b border-white/10 p-8 transition-colors hover:bg-navy-mid md:border-r md:border-b-0"
-			>
-				<h2 class="font-display text-2xl font-bold uppercase">Hogar</h2>
-				<p class="mt-2 text-paper/85">Seguridad familiar con soporte local.</p>
-				<span class="mt-4 inline-block text-gold-bright group-hover:underline">Ver soluciones →</span>
-			</a>
-			<a href="/negocios" class="group p-8 transition-colors hover:bg-navy-mid">
-				<h2 class="font-display text-2xl font-bold uppercase">Negocio</h2>
-				<p class="mt-2 text-paper/85">Vigilancia para inventario y accesos.</p>
-				<span class="mt-4 inline-block text-gold-bright group-hover:underline">Ver soluciones →</span>
-			</a>
+	<section class="section" style="padding-top: 0">
+		<div class="wrap">
+			<div class="section-head">
+				<p class="kicker">La confianza también se configura</p>
+				<h2>Instalar bien es el comienzo. Acompañarte es parte del trabajo.</h2>
+				<p>
+					Te explicamos cómo consultar el sistema, qué revisar si aparece una falla y cuándo conviene
+					reparar, ampliar o actualizar.
+				</p>
+				<p>
+					También te orientamos para cuidar el acceso y manejar las grabaciones con responsabilidad.
+				</p>
+			</div>
+			<a href="/sobre-nosotros">Sobre el soporte local</a>
 		</div>
 	</section>
 
-	<PageShell h1="Servicios" lead="Scaffolding Fase 4 — maquetado completo en Fase 5.">
-		<ul class="grid gap-4 sm:grid-cols-2 lg:grid-cols-3">
-			{
-				services.map((entry) => (
-					<li class="rounded-(--radius-brand) border border-navy/10 bg-white p-5 shadow-sm">
-						<h3 class="font-display text-lg font-semibold text-navy uppercase">{entry.data.title}</h3>
-						<p class="mt-2 text-sm text-slate">{entry.data.summary}</p>
-						<a
-							href={`/${entry.id}`}
-							class="mt-4 inline-block text-sm font-semibold text-navy-mid hover:text-gold"
-						>
-							Ver más
-						</a>
-					</li>
-				))
-			}
-		</ul>
-	</PageShell>
+	<section class="section cta-band" id="contacto">
+		<div class="wrap">
+			<p class="kicker">Siguiente paso</p>
+			<h2>Cuéntanos qué quieres cuidar.</h2>
+			<p>Una instalación nueva, una falla o una revisión: conversemos y revisamos qué necesita tu espacio.</p>
+			<div class="btn-row">
+				<a class="btn btn-wa" href={site.whatsappUrl} target="_blank" rel="noopener noreferrer">
+					Escribir por WhatsApp
+				</a>
+				<a class="btn btn-ghost" href={`mailto:${site.email}`}>Enviar un correo</a>
+			</div>
+			<p class="meta">
+				{site.city} y zonas cercanas, según el alcance del servicio.<br />
+				<a href={site.whatsappUrl}>{site.phoneDisplay}</a>
+				{' · '}
+				<a href={`mailto:${site.email}`}>{site.email}</a>
+			</p>
+		</div>
+	</section>
 </BaseLayout>

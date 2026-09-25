@@ -11,8 +11,8 @@ export const site = {
 	region: 'Guaviare',
 	country: 'CO',
 	locale: 'es-CO',
-	/** Dominio final TBD (Fase 8); placeholder para sitemap/canonical en preview. */
-	siteUrl: 'https://camarasyalarmassanjose.pages.dev',
+	/** Producción en Vercel. Search Console sigue en Fase 8. */
+	siteUrl: 'https://camarasyalarmassanjose.lat',
 	schemaType: 'HomeAndConstructionBusiness' as const,
 	socials: {
 		facebook: 'https://www.facebook.com/profile.php?id=61579056313249',

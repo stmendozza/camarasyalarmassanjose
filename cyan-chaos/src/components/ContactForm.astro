@@ -1,0 +1,76 @@
+---
+import { site } from '../data/site';
+
+interface Props {
+	title?: string;
+}
+
+const { title = 'Envíanos un mensaje' } = Astro.props;
+const formKey = import.meta.env.PUBLIC_WEB3FORMS_ACCESS_KEY as string | undefined;
+const enviado = Astro.url.searchParams.get('enviado') === '1';
+---
+
+<form
+	class="form"
+	id="contacto-form"
+	method="POST"
+	action={formKey ? 'https://api.web3forms.com/submit' : undefined}
+>
+	<div class="section-head" style="margin-bottom: 1.25rem">
+		<p class="kicker">Formulario</p>
+		<h2 style="font-size: 1.5rem">{title}</h2>
+	</div>
+	{enviado && <p class="form-ok">Recibimos tu solicitud. Te contactamos pronto.</p>}
+	{
+		formKey && (
+			<>
+				<input type="hidden" name="access_key" value={formKey} />
+				<input type="hidden" name="subject" value={`Cotización — ${site.brandName}`} />
+				<input type="hidden" name="from_name" value={site.brandName} />
+				<input type="hidden" name="redirect" value={`${site.siteUrl}/contacto/?enviado=1`} />
+			</>
+		)
+	}
+	<label for="nombre">Nombre</label>
+	<input id="nombre" name="nombre" type="text" autocomplete="name" required />
+
+	<label for="tel">Teléfono / WhatsApp</label>
+	<input id="tel" name="tel" type="tel" autocomplete="tel" required />
+
+	<label for="tipo">¿Hogar o negocio?</label>
+	<select id="tipo" name="tipo">
+		<option>Hogar</option>
+		<option>Negocio</option>
+		<option>Mantenimiento</option>
+	</select>
+
+	<label for="msg">¿Qué necesitas?</label>
+	<textarea id="msg" name="mensaje" required placeholder="Ej. 4 cámaras para un local…"></textarea>
+
+	<button class="btn btn-gold" type="submit">
+		{formKey ? 'Enviar solicitud' : 'Continuar por WhatsApp'}
+	</button>
+	<p class="form-note">
+		O escribe directo:
+		<a href={site.whatsappUrl} target="_blank" rel="noopener noreferrer">WhatsApp {site.phoneDisplay}</a>
+	</p>
+</form>
+
+{
+	!formKey && (
+		<script define:vars={{ wa: site.whatsappUrl }}>
+			const form = document.getElementById('contacto-form');
+			form?.addEventListener('submit', (event) => {
+				event.preventDefault();
+				const data = new FormData(form);
+				const text = [
+					`Hola, soy ${data.get('nombre')}.`,
+					`Teléfono: ${data.get('tel')}.`,
+					`Tipo: ${data.get('tipo')}.`,
+					String(data.get('mensaje') ?? ''),
+				].join(' ');
+				window.location.href = `${wa}?text=${encodeURIComponent(text)}`;
+			});
+		</script>
+	)
+}

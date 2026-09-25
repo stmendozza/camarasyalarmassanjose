@@ -1,18 +1,51 @@
 ---
-import PageLayout from '../layouts/PageLayout.astro';
+import BaseLayout from '../layouts/BaseLayout.astro';
+import PageHero from '../components/PageHero.astro';
+import FaqList from '../components/FaqList.astro';
+import CtaBand from '../components/CtaBand.astro';
 import { getPageMeta } from '../data/pages-meta';
-import { getEntry } from 'astro:content';
+import { getCollection } from 'astro:content';
 
 const meta = getPageMeta('sistemas-de-seguridad');
-const service = await getEntry('services', 'sistemas-de-seguridad');
+const faqs = (await getCollection('faqs')).filter((entry) =>
+	entry.data.pageSlugs.includes('sistemas-de-seguridad'),
+);
 ---
 
-<PageLayout
-	title={meta.title}
-	description={meta.description}
-	h1={meta.h1}
-	lead={service?.data.summary}
-	pathname="/sistemas-de-seguridad"
->
-	<p class="text-slate">Comparativa de paquetes — Fase 5.</p>
-</PageLayout>
+<BaseLayout title={meta.title} description={meta.description} pathname="/sistemas-de-seguridad">
+	<PageHero
+		crumb="Sistemas"
+		h1={meta.h1}
+		lead="Combinamos cámaras y alarmas según el lugar. No publicamos precios: cada sistema se cotiza por WhatsApp."
+	/>
+
+	<section class="section">
+		<div class="wrap">
+			<div class="section-head">
+				<p class="kicker">Orientación</p>
+				<h2>Tres puntos de partida</h2>
+				<p>Sirven para conversar el alcance. No son paquetes con tarifa fija.</p>
+			</div>
+			<div class="package-grid">
+				<article class="panel">
+					<h3>Casa</h3>
+					<p>Cámaras en accesos y sensores en puertas. App para ver desde el celular.</p>
+					<p style="margin-top: 0.75rem"><a href="/hogar">Ver hogar</a></p>
+				</article>
+				<article class="panel">
+					<h3>Local</h3>
+					<p>Cámaras en mostrador, bodega y fachada, más alarma fuera de horario.</p>
+					<p style="margin-top: 0.75rem"><a href="/negocios">Ver negocios</a></p>
+				</article>
+				<article class="panel">
+					<h3>Ya instalado</h3>
+					<p>Mantenimiento o ampliación de un sistema que ya tienes, sea nuestro o de otro proveedor.</p>
+					<p style="margin-top: 0.75rem"><a href="/mantenimiento">Ver mantenimiento</a></p>
+				</article>
+			</div>
+		</div>
+	</section>
+
+	<FaqList entries={faqs} />
+	<CtaBand title="Arma tu sistema" text="Describe la casa o el local y te proponemos cámaras, alarmas o ambos." />
+</BaseLayout>

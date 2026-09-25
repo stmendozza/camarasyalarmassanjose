@@ -1,7 +1,7 @@
 ---
 name: El Retorno
 kind: nearby
-description: Zona cercana — confirmar disponibilidad con el equipo (pendiente B3).
+description: Municipio cercano. Al cotizar te decimos si podemos ir.
 priority: 2
 confirmed: false
 ---
