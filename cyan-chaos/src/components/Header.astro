@@ -30,24 +30,37 @@ const drawerNav = footerNav;
 		</a>
 	</div>
 	<div class="nav-drawer" id="drawer" hidden>
-		{
-			drawerNav.map((item) => (
-				<a href={item.href} aria-current={currentPath === item.href ? 'page' : undefined}>
-					{item.label}
-				</a>
-			))
-		}
+		<nav aria-label="Secciones">
+			{
+				drawerNav.map((item) => (
+					<a href={item.href} aria-current={currentPath === item.href ? 'page' : undefined}>
+						{item.label}
+					</a>
+				))
+			}
+		</nav>
 	</div>
 </header>
 
 <script>
 	const btn = document.getElementById('navBtn');
 	const drawer = document.getElementById('drawer');
-	btn?.addEventListener('click', () => {
+
+	const setOpen = (open) => {
 		if (!drawer || !btn) return;
-		const open = drawer.classList.toggle('open');
+		drawer.classList.toggle('open', open);
 		drawer.hidden = !open;
 		btn.textContent = open ? 'Cerrar' : 'Menú';
 		btn.setAttribute('aria-expanded', String(open));
+	};
+
+	btn?.addEventListener('click', () => {
+		setOpen(btn.getAttribute('aria-expanded') !== 'true');
+	});
+
+	document.addEventListener('keydown', (event) => {
+		if (event.key !== 'Escape' || !drawer || drawer.hidden) return;
+		setOpen(false);
+		btn?.focus();
 	});
 </script>

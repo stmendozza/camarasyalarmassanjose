@@ -12,10 +12,10 @@
 | 4 | Setup del proyecto Astro (base técnica) | ✅ Completada | 100% |
 | 5 | Maquetado de secciones y contenido | ✅ Completada | 100% |
 | 6 | SEO on-page + datos estructurados | ✅ Completada | 100% |
-| 7 | QA, performance y accesibilidad | ⬜ Pendiente | 0% |
+| 7 | QA, performance y accesibilidad | ✅ Completada | 100% |
 | 8 | Despliegue, indexación y monitoreo | 🔄 En curso | 50% |
 
-**Avance global del proyecto: 75%** (6 de 8 fases cerradas; Fase 7 siguiente)
+**Avance global del proyecto: 87.5%** (7 de 8 fases cerradas; Fase 8 en curso)
 
 **Dominio canónico:** `https://www.camarasyalarmassanjose.lat` (Vercel redirige el apex a www)
 
@@ -224,10 +224,10 @@ Dirección visual sustituida el 2026-09-25. Canon: `DESIGN.md`. Auditoría: `doc
 - [x] JSON-LD `HomeAndConstructionBusiness` (sin calle ni horario: B2) + `BreadcrumbList` + `FAQPage` donde hay preguntas reales
 - [x] `sitemap-index.xml` y `robots.txt` en el host www, sin slash final en las URLs internas
 
-### Fase 7 — QA, performance y accesibilidad — 0%
-- [ ] Auditoría Lighthouse (performance/SEO/accesibilidad ≥ 90)
-- [ ] Pruebas en dispositivos móviles reales
-- [ ] Revisión de contraste y navegación por teclado
+### Fase 7 — QA, performance y accesibilidad — ✅ 100%
+- [x] Auditoría Lighthouse (performance/SEO/accesibilidad ≥ 90) → home y contacto en móvil: 100 / 100 / 100 (`docs/fase-07/01-qa.md`)
+- [x] Pruebas en dispositivos móviles reales — el cliente confirmó el 2026-09-25 que en el teléfono se ve bien
+- [x] Revisión de contraste y navegación por teclado
 
 ### Fase 8 — Despliegue e indexación — en curso
 - [x] Publicación en dominio final (`www.camarasyalarmassanjose.lat`)
@@ -248,4 +248,5 @@ Dirección visual sustituida el 2026-09-25. Canon: `DESIGN.md`. Auditoría: `doc
 - ~~Cerrar Fase 2~~ ✅ · ~~Cerrar Fase 3~~ ✅ (prototipo aprobado 2026-09-25)
 - ~~Cerrar Fase 4~~ ✅ — scaffolding en `cyan-chaos/`. Dominio `https://camarasyalarmassanjose.lat`.
 - **Fase 6 cerrada** — titles, schema y sitemap alineados a `https://www.camarasyalarmassanjose.lat`.
-- **En curso: Fase 7** — QA, Lighthouse y contraste. En Search Console, enviar el sitemap cuando este build esté en producción.
+- **Fase 7 cerrada** — Lighthouse 100/100/100, contraste, teclado y visto bueno en teléfono real (2026-09-25).
+- **En curso: Fase 8** — reenviar `sitemap-index.xml` en Search Console (el intento del 2026-09-25 falló con «No se ha podido obtener»; el archivo ya responde 200) y monitorear el clúster. Hace falta redesplegar este build antes de reenviar.
