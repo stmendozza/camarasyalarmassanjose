@@ -7,76 +7,75 @@ export type PageMeta = {
 	h1: string;
 };
 
-const brand = site.brandName;
 const city = site.city;
 
-/** Borrador F2 — copy final en Fases 5–6 */
+/** Titles congelados en Fase 6. Home no compite por «sistemas de seguridad»; esa frase vive en /sistemas-de-seguridad. */
 export const pagesMeta = {
 	home: {
 		slug: '',
-		title: `Sistemas de Seguridad en ${city} | ${brand}`,
-		description: `${brand}: cámaras, alarmas inteligentes e instalación profesional en ${city}. Cotiza por WhatsApp.`,
-		h1: site.tagline,
+		title: `Cámaras y alarmas en ${city}`,
+		description: `Cámaras, alarmas e instalación en ${city}, capital del Guaviare. También El Retorno, Calamar, Mapiripán y Concordia. Cotiza por WhatsApp.`,
+		h1: 'Seguridad bien instalada, lista cuando la necesitas.',
 	},
 	'camaras-de-seguridad': {
 		slug: 'camaras-de-seguridad',
-		title: `Cámaras de Seguridad en ${city}`,
-		description: `Cámaras de vigilancia bala, domo y PTZ con instalación en ${city}. Monitoreo desde el celular.`,
+		title: `Cámaras de seguridad en ${city}`,
+		description: `Cámaras bala, domo y PTZ con instalación y app para ver en vivo desde el celular. Soporte local en ${city}.`,
 		h1: `Cámaras de seguridad en ${city}`,
 	},
 	alarmas: {
 		slug: 'alarmas',
-		title: `Alarmas Inteligentes en ${city}`,
-		description: `Alarmas inteligentes, sensores y paneles para hogar y negocio en ${city}.`,
-		h1: 'Alarmas inteligentes para hogar y negocio',
+		title: `Alarmas inteligentes en ${city}`,
+		description: `Alarmas con sensores y panel para hogar y negocio en ${city}. Instalación incluida y soporte en la ciudad.`,
+		h1: `Alarmas inteligentes en ${city}`,
 	},
 	instalacion: {
 		slug: 'instalacion',
-		title: `Instalación de Cámaras y Alarmas | ${city}`,
-		description: `Instalación profesional de cámaras y alarmas en ${city}. Soporte técnico local.`,
-		h1: 'Instalación profesional incluida',
+		title: `Instalación de cámaras en ${city}`,
+		description: `Instalación de cámaras y alarmas a domicilio en ${city}. Dejamos el sistema listo y te explicamos la app.`,
+		h1: `Instalación de cámaras y alarmas en ${city}`,
 	},
 	mantenimiento: {
 		slug: 'mantenimiento',
-		title: `Mantenimiento de Cámaras en ${city}`,
-		description: `Mantenimiento preventivo y correctivo de cámaras de seguridad en ${city}.`,
-		h1: 'Mantenimiento preventivo de cámaras',
+		title: `Mantenimiento de cámaras en ${city}`,
+		description: `Mantenimiento preventivo y reparación de cámaras y alarmas en ${city}, aunque el equipo lo haya instalado otro proveedor.`,
+		h1: `Mantenimiento de cámaras en ${city}`,
 	},
 	'sistemas-de-seguridad': {
 		slug: 'sistemas-de-seguridad',
-		title: `Sistemas de Seguridad | ${city}`,
-		description: `Paquetes y sistemas integrados de cámaras y alarmas en ${city}.`,
-		h1: 'Sistemas de seguridad a tu medida',
+		title: `Sistemas de seguridad en ${city}`,
+		description: `Sistemas de cámaras y alarmas a la medida del espacio en ${city}. El alcance se cotiza por WhatsApp, sin tarifa publicada.`,
+		h1: `Sistemas de seguridad en ${city}`,
 	},
 	hogar: {
 		slug: 'hogar',
-		title: `Cámaras y Alarmas para el Hogar | ${city}`,
-		description: `Protección residencial con cámaras y alarmas en ${city}.`,
-		h1: 'Seguridad para tu hogar',
+		title: `Seguridad para el hogar en ${city}`,
+		description: `Cámaras y alarmas para la casa en ${city}, con monitoreo desde el celular y soporte técnico local.`,
+		h1: `Seguridad para el hogar en ${city}`,
 	},
 	negocios: {
 		slug: 'negocios',
-		title: `Cámaras y Alarmas para Negocios | ${city}`,
-		description: `Vigilancia para locales comerciales y negocios en ${city}.`,
-		h1: 'Vigilancia para tu negocio',
+		title: `Vigilancia para negocios en ${city}`,
+		description: `Cámaras y alarmas para tiendas, talleres y oficinas en ${city}. Inventario, caja y accesos, con soporte local.`,
+		h1: `Vigilancia para negocios en ${city}`,
 	},
 	cobertura: {
 		slug: 'cobertura',
-		title: `Cobertura de Servicio | ${city} y zona`,
-		description: `Zonas donde instalamos cámaras y alarmas. ${city} y alrededores.`,
-		h1: 'Dónde instalamos',
+		title: `Cobertura en ${city} y la zona`,
+		description: `Instalamos en ${city}, capital del Guaviare, y también en El Retorno, Calamar, Mapiripán y Concordia.`,
+		h1: 'Dónde instalamos en el Guaviare',
 	},
 	'sobre-nosotros': {
 		slug: 'sobre-nosotros',
-		title: `Sobre Nosotros | Soporte Técnico Local`,
-		description: `${brand}: soporte técnico local en ${city}.`,
-		h1: 'Soporte técnico local en San José',
+		title: `Soporte técnico en ${city}`,
+		description: `${site.brandName}: instalación y soporte técnico local en ${city}, no un call center de otra ciudad.`,
+		h1: `Soporte técnico local en ${city}`,
 	},
 	contacto: {
 		slug: 'contacto',
-		title: 'Contacto y Cotización | WhatsApp',
-		description: `Cotiza cámaras y alarmas por WhatsApp ${site.phoneDisplay} o formulario.`,
-		h1: 'Contáctanos',
+		title: `Contacto y cotización en ${city}`,
+		description: `Cotiza cámaras y alarmas por WhatsApp ${site.phoneDisplay} o deja tus datos. Atención en ${city}.`,
+		h1: 'Contacto y cotización',
 	},
 } as const satisfies Record<string, PageMeta>;
 

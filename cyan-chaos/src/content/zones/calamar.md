@@ -1,7 +1,7 @@
 ---
-name: El Retorno
+name: Calamar
 kind: nearby
 description: Municipio del Guaviare. Instalamos y damos soporte a domicilio.
-priority: 2
+priority: 3
 confirmed: true
 ---

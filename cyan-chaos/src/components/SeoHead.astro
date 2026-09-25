@@ -1,6 +1,6 @@
 ---
 import { site } from '../data/site';
-import { absoluteUrl, buildLocalBusinessJsonLd } from '../utils/seo';
+import { absoluteUrl, buildBreadcrumbJsonLd, buildLocalBusinessJsonLd } from '../utils/seo';
 
 interface Props {
 	title: string;
@@ -11,7 +11,8 @@ interface Props {
 
 const { title, description, pathname, noindex = false } = Astro.props;
 const canonical = absoluteUrl(site.siteUrl, pathname);
-const jsonLd = buildLocalBusinessJsonLd(site, canonical);
+const jsonLd = buildLocalBusinessJsonLd(site);
+const breadcrumb = buildBreadcrumbJsonLd(site, pathname, title);
 ---
 
 <meta charset="utf-8" />
@@ -33,3 +34,4 @@ const jsonLd = buildLocalBusinessJsonLd(site, canonical);
 <meta name="twitter:title" content={title} />
 <meta name="twitter:description" content={description} />
 <script type="application/ld+json" set:html={JSON.stringify(jsonLd)} />
+{breadcrumb && <script type="application/ld+json" set:html={JSON.stringify(breadcrumb)} />}

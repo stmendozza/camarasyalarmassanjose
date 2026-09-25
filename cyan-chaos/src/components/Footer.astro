@@ -1,24 +1,95 @@
 ---
+import Wordmark from './Wordmark.astro';
 import { site } from '../data/site';
 import { footerNav } from '../data/navigation';
+
+const year = new Date().getFullYear();
+const services = footerNav.filter(
+	(item) => !['/cobertura', '/sobre-nosotros', '/contacto'].includes(item.href),
+);
 ---
 
 <footer class="site-footer">
 	<div class="wrap">
-		<p class="brand footer-brand">
-			Cámaras y Alarmas<span class="dot">.</span>
-			<small>San José</small>
-		</p>
-		<p>{site.brandName}. Instalación, configuración, reparación y mantenimiento a domicilio en {site.city} y zonas cercanas.</p>
-		<nav aria-label="Pie de página">
-			{
-				footerNav.map((item) => (
-					<a href={item.href}>{item.label}</a>
-				))
-			}
-			<a href={site.whatsappUrl} target="_blank" rel="noopener noreferrer">WhatsApp</a>
-			<a href={`tel:${site.phoneE164}`}>Llamar</a>
-			<a href={`mailto:${site.email}`}>Correo</a>
-		</nav>
+		<div class="footer-grid">
+			<div class="footer-brand">
+				<Wordmark href="/" />
+				<p class="footer-lede">
+					Instalación y mantenimiento de cámaras y alarmas para hogares y negocios. La base es {site.city}.
+				</p>
+				<p class="footer-aside">
+					<a href="/sobre-nosotros">Sobre nosotros</a>
+					<a href="/contacto">Contacto</a>
+				</p>
+			</div>
+
+			<nav aria-label="Servicios">
+				<p class="footer-kicker">Servicios</p>
+				<ul>
+					{
+						services.map((item) => (
+							<li>
+								<a href={item.href}>{item.label}</a>
+							</li>
+						))
+					}
+				</ul>
+			</nav>
+
+			<nav aria-label="Cobertura">
+				<p class="footer-kicker">Cobertura</p>
+				<ul>
+					{
+						site.serviceAreas.map((area) => (
+							<li>
+								<a href={`/cobertura#${area.slug}`}>{area.name}</a>
+							</li>
+						))
+					}
+				</ul>
+			</nav>
+
+			<div>
+				<p class="footer-kicker">Contacto</p>
+				<ul class="footer-contact">
+					<li>
+						<a href={`tel:${site.phoneE164}`}>{site.phoneDisplay}</a>
+					</li>
+					<li>
+						<a href={site.whatsappUrl} target="_blank" rel="noopener noreferrer">WhatsApp</a>
+					</li>
+					<li>
+						<a href={`mailto:${site.email}`}>{site.email}</a>
+					</li>
+					<li>
+						<a href={site.socials.facebook} target="_blank" rel="noopener noreferrer">Facebook</a>
+					</li>
+				</ul>
+				<p class="footer-place">{site.city}, {site.region}</p>
+			</div>
+		</div>
+
+		<div class="footer-base">
+			<p>© {year} {site.brandName}</p>
+			<p class="credit">
+				<svg class="credit-palm" viewBox="0 0 24 24" aria-hidden="true">
+					<path
+						fill="none"
+						stroke="currentColor"
+						stroke-width="1.6"
+						stroke-linecap="round"
+						d="M12.2 22c-.15-2.7-.05-5.3.45-7.8"
+					/>
+					<path
+						fill="none"
+						stroke="currentColor"
+						stroke-width="1.45"
+						stroke-linecap="round"
+						d="M12.4 13.8C9.6 12.6 6.6 12.8 4 14.4M12.2 13.4C10.6 10.6 10.4 7.2 11.6 4.2M12.5 13.2c.4-3.2 1.8-5.8 4-7.6M12.6 13.6c2.4-1.6 5.2-1.8 7.8-.4M12.5 14.2c2.2.2 4.2 1.4 5.6 3.4"
+					/>
+				</svg>
+				<span>Hecho desde el Guaviare por <a href="https://www.conectasolutions.lat/" target="_blank" rel="noopener noreferrer">Conecta Solutions Soft</a></span>
+			</p>
+		</div>
 	</div>
 </footer>

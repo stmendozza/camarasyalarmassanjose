@@ -32,23 +32,25 @@
 | zonas / cobertura / El Retorno / Calamar… | Geo | `/cobertura` | Lista zonas (TBD B3) |
 | cotizar cámaras / alarmas WhatsApp | Conversión | `/contacto` + WA global | Form + deep link |
 
-## Titles / H1 orientativos (borrador — Fase 6 los congela)
+## Titles / H1 congelados (Fase 6, 2026-09-25)
 
-| URL | Title (≤ ~60) | H1 |
-|-----|---------------|-----|
-| `/` | Sistemas de Seguridad en San José del Guaviare \| [Marca] | Protege tu hogar o negocio |
-| `/camaras-de-seguridad` | Cámaras de Seguridad en San José del Guaviare | Cámaras de seguridad en San José del Guaviare |
-| `/alarmas` | Alarmas Inteligentes en San José del Guaviare | Alarmas inteligentes para hogar y negocio |
-| `/instalacion` | Instalación de Cámaras y Alarmas \| San José del Guaviare | Instalación profesional incluida |
-| `/mantenimiento` | Mantenimiento de Cámaras en San José del Guaviare | Mantenimiento preventivo de cámaras |
-| `/sistemas-de-seguridad` | Sistemas de Seguridad \| San José del Guaviare | Sistemas de seguridad a tu medida |
-| `/hogar` | Cámaras y Alarmas para el Hogar \| San José del Guaviare | Seguridad para tu hogar |
-| `/negocios` | Cámaras y Alarmas para Negocios \| San José del Guaviare | Vigilancia para tu negocio |
-| `/cobertura` | Cobertura de Servicio \| San José del Guaviare y zona | Dónde instalamos |
-| `/sobre-nosotros` | Sobre Nosotros \| Soporte Técnico Local | Soporte técnico local en San José |
-| `/contacto` | Contacto y Cotización \| WhatsApp | Contáctanos |
+El host canónico es `https://www.camarasyalarmassanjose.lat`.
 
-`[Marca]` = `Cámaras y Alarmas San José` (confirmado).
+| URL | Title | H1 |
+|-----|-------|-----|
+| `/` | Cámaras y alarmas en San José del Guaviare | Seguridad bien instalada, lista cuando la necesitas. |
+| `/camaras-de-seguridad` | Cámaras de seguridad en San José del Guaviare | Cámaras de seguridad en San José del Guaviare |
+| `/alarmas` | Alarmas inteligentes en San José del Guaviare | Alarmas inteligentes en San José del Guaviare |
+| `/instalacion` | Instalación de cámaras en San José del Guaviare | Instalación de cámaras y alarmas en San José del Guaviare |
+| `/mantenimiento` | Mantenimiento de cámaras en San José del Guaviare | Mantenimiento de cámaras en San José del Guaviare |
+| `/sistemas-de-seguridad` | Sistemas de seguridad en San José del Guaviare | Sistemas de seguridad en San José del Guaviare |
+| `/hogar` | Seguridad para el hogar en San José del Guaviare | Seguridad para el hogar en San José del Guaviare |
+| `/negocios` | Vigilancia para negocios en San José del Guaviare | Vigilancia para negocios en San José del Guaviare |
+| `/cobertura` | Cobertura en San José del Guaviare y la zona | Dónde instalamos en el Guaviare |
+| `/sobre-nosotros` | Soporte técnico en San José del Guaviare | Soporte técnico local en San José del Guaviare |
+| `/contacto` | Contacto y cotización en San José del Guaviare | Contacto y cotización |
+
+La home no usa el title «sistemas de seguridad…»; esa frase queda en `/sistemas-de-seguridad`.
 
 ## Anti-cannibalización
 

@@ -27,7 +27,7 @@ const enviado = Astro.url.searchParams.get('enviado') === '1';
 				<input type="hidden" name="access_key" value={formKey} />
 				<input type="hidden" name="subject" value={`Cotización — ${site.brandName}`} />
 				<input type="hidden" name="from_name" value={site.brandName} />
-				<input type="hidden" name="redirect" value={`${site.siteUrl}/contacto/?enviado=1`} />
+				<input type="hidden" name="redirect" value={`${site.siteUrl}/contacto?enviado=1`} />
 			</>
 		)
 	}

@@ -14,7 +14,7 @@ const zones = (await getCollection('zones')).sort((a, b) => a.data.priority - b.
 	<PageHero
 		crumb="Cobertura"
 		h1={meta.h1}
-		lead={`Instalación, envíos y soporte con base en ${site.city}. Las zonas vecinas se confirman al cotizar.`}
+		lead={`La base es ${site.city}, capital del Guaviare. También trabajamos en El Retorno, Calamar, Mapiripán y Concordia.`}
 		secondaryLabel="Contacto"
 	/>
 
@@ -24,18 +24,16 @@ const zones = (await getCollection('zones')).sort((a, b) => a.data.priority - b.
 				<p class="kicker">Zonas</p>
 				<h2>Dónde llegamos hoy</h2>
 				<p>
-					La base del servicio es {site.city}. Si estás en un municipio cercano, al cotizar te decimos si
-					podemos ir.
+					Estas son las zonas donde instalamos y damos soporte. San José del Guaviare es la principal.
 				</p>
 			</div>
 			<ul class="steps">
 				{
 					zones.map((zone) => (
-						<li>
+						<li id={zone.id}>
 							<strong>{zone.data.name}</strong>
 							<p>
 								{zone.data.description}
-								{!zone.data.confirmed && ' Escríbenos para saber si llegamos.'}
 							</p>
 						</li>
 					))
@@ -49,5 +47,8 @@ const zones = (await getCollection('zones')).sort((a, b) => a.data.priority - b.
 		</div>
 	</section>
 
-	<CtaBand title="¿Tu zona está cubierta?" text="Escríbenos el barrio o el municipio y te decimos si podemos ir." />
+	<CtaBand
+		title="Agenda en tu municipio"
+		text="Escríbenos desde San José del Guaviare, El Retorno, Calamar, Mapiripán o Concordia."
+	/>
 </BaseLayout>

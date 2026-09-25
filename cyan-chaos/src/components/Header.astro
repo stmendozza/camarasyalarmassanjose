@@ -1,4 +1,5 @@
 ---
+import Wordmark from './Wordmark.astro';
 import { site } from '../data/site';
 import { footerNav, headerNav } from '../data/navigation';
 
@@ -8,9 +9,7 @@ const drawerNav = footerNav;
 
 <header class="site-header">
 	<div class="wrap bar">
-		<button class="nav-toggle" type="button" aria-expanded="false" aria-controls="drawer" id="navBtn">
-			Menú
-		</button>
+		<Wordmark href="/" />
 		<nav class="nav" aria-label="Principal">
 			{
 				headerNav.map((item) => (
@@ -20,15 +19,14 @@ const drawerNav = footerNav;
 				))
 			}
 		</nav>
-		<a class="btn btn-wa" href={site.whatsappUrl} target="_blank" rel="noopener noreferrer">
-			WhatsApp
+		<button class="nav-toggle" type="button" aria-expanded="false" aria-controls="drawer" id="navBtn">
+			Menú
+		</button>
+		<a class="btn btn-wa" href={site.whatsappUrl} target="_blank" rel="noopener noreferrer" aria-label="WhatsApp">
+			<span class="wa-label">WhatsApp</span>
 			<svg viewBox="0 0 16 16" width="14" height="14" aria-hidden="true">
 				<path d="M3 8h8M8 4l4 4-4 4" fill="none" stroke="currentColor" stroke-width="1.5"></path>
 			</svg>
-		</a>
-		<a class="brand" href="/">
-			Cámaras y Alarmas<span class="dot">.</span>
-			<small>San José</small>
 		</a>
 	</div>
 	<div class="nav-drawer" id="drawer" hidden>

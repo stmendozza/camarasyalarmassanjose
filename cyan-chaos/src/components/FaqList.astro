@@ -1,24 +1,31 @@
 ---
 import { render, type CollectionEntry } from 'astro:content';
+import { buildFaqJsonLd } from '../utils/seo';
 
 interface Props {
 	entries: CollectionEntry<'faqs'>[];
 }
 
 const { entries } = Astro.props;
+const sorted = [...entries].sort((a, b) => a.data.order - b.data.order);
 const items = await Promise.all(
-	[...entries]
-		.sort((a, b) => a.data.order - b.data.order)
-		.map(async (entry) => {
-			const { Content } = await render(entry);
-			return { question: entry.data.question, Content };
-		}),
+	sorted.map(async (entry) => {
+		const { Content } = await render(entry);
+		return { question: entry.data.question, Content, body: entry.body ?? '' };
+	}),
+);
+const faqLd = buildFaqJsonLd(
+	items.map((item) => ({
+		question: item.question,
+		answer: item.body.replace(/[#*_>`]/g, '').replace(/\s+/g, ' ').trim(),
+	})),
 );
 ---
 
 {
 	items.length > 0 && (
 		<section class="section faq" style="padding-top: 0">
+			{faqLd && <script type="application/ld+json" set:html={JSON.stringify(faqLd)} />}
 			<div class="wrap">
 				<div class="section-head">
 					<p class="kicker">FAQ</p>

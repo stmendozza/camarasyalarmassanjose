@@ -1,0 +1,21 @@
+---
+interface Props {
+	href?: string;
+}
+
+const { href } = Astro.props;
+---
+
+{
+	href ? (
+		<a class="brand" href={href} aria-label="Cámaras y Alarmas San José">
+			<span class="brand-name">Cámaras y Alarmas</span>
+			<span class="brand-place">San José</span>
+		</a>
+	) : (
+		<p class="brand">
+			<span class="brand-name">Cámaras y Alarmas</span>
+			<span class="brand-place">San José</span>
+		</p>
+	)
+}

@@ -1,6 +1,7 @@
 ---
+import { Image } from 'astro:assets';
 import BaseLayout from '../layouts/BaseLayout.astro';
-import CameraArt from '../components/CameraArt.astro';
+import heroImage from '../content/image-hero.png';
 import { getPageMeta } from '../data/pages-meta';
 import { site } from '../data/site';
 
@@ -15,8 +16,17 @@ const meta = getPageMeta('home');
 				<h1>Seguridad bien instalada, lista cuando la necesitas.</h1>
 				<p class="lede">
 					Instalación, configuración, reparación y mantenimiento de cámaras y alarmas a domicilio para
-					hogares y negocios de {site.city} y zonas cercanas.
+					hogares y negocios. La base es {site.city}, capital del Guaviare.
 				</p>
+				<ul class="places">
+					{
+						site.serviceAreas.map((area) => (
+							<li>
+								{area.primary ? <strong>{area.name}</strong> : area.name}
+							</li>
+						))
+					}
+				</ul>
 				<div class="btn-row">
 					<a class="btn btn-ghost" href="/contacto">Cuéntanos qué necesitas</a>
 					<a class="btn btn-wa" href={site.whatsappUrl} target="_blank" rel="noopener noreferrer">
@@ -24,7 +34,16 @@ const meta = getPageMeta('home');
 					</a>
 				</div>
 			</div>
-			<CameraArt />
+			<Image
+				src={heroImage}
+				alt="Cámara domo, cámara bala y celular con vista en vivo, sobre el paisaje del Guaviare."
+				class="hero-photo"
+				widths={[640, 960, 1280]}
+				sizes="(min-width: 960px) 42rem, 100vw"
+				loading="eager"
+				fetchpriority="high"
+				decoding="async"
+			/>
 		</div>
 	</section>
 
@@ -161,7 +180,7 @@ const meta = getPageMeta('home');
 				<a class="btn btn-ghost" href={`mailto:${site.email}`}>Enviar un correo</a>
 			</div>
 			<p class="meta">
-				{site.city} y zonas cercanas, según el alcance del servicio.<br />
+				{site.serviceAreas.map((area) => area.name).join(' · ')}.<br />
 				<a href={site.whatsappUrl}>{site.phoneDisplay}</a>
 				{' · '}
 				<a href={`mailto:${site.email}`}>{site.email}</a>

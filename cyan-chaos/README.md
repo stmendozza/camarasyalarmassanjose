@@ -20,4 +20,4 @@ App estática (Fase 4). Diseño canon: `../DESIGN.md` · prototipo: `../prototyp
 
 ## Deploy
 
-Build: `npm run build`. Producción: `https://camarasyalarmassanjose.lat` (Vercel). `siteUrl` vive en `src/data/site.ts` y `astro.config.mjs`.
+Build: `npm run build`. Producción: `https://www.camarasyalarmassanjose.lat` (Vercel redirige el apex a www). `siteUrl` vive en `src/data/site.ts` y `astro.config.mjs`.

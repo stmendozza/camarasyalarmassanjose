@@ -5,11 +5,12 @@ import tailwindcss from '@tailwindcss/vite';
 import sitemap from '@astrojs/sitemap';
 
 // Sincronizar con src/data/site.ts → siteUrl
-const siteUrl = 'https://camarasyalarmassanjose.lat';
+const siteUrl = 'https://www.camarasyalarmassanjose.lat';
 
 // https://astro.build/config
 export default defineConfig({
   site: siteUrl,
+  trailingSlash: 'never',
   vite: {
     plugins: [tailwindcss()],
   },
