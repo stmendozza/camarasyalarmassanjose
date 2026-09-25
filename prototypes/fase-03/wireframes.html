@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+<html lang="es">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>Wireframes — Fase 3</title>
+    <link rel="stylesheet" href="styles.css" />
+    <style>
+      body.wf-page {
+        padding: 1.5rem;
+      }
+      h1 {
+        font-size: 1.25rem;
+      }
+      .cols {
+        display: grid;
+        gap: 1.5rem;
+      }
+      @media (min-width: 900px) {
+        .cols {
+          grid-template-columns: repeat(3, 1fr);
+        }
+      }
+      .wf-box h2 {
+        margin: 0 0 0.75rem;
+        font-size: 1rem;
+      }
+      .block {
+        border: 1px solid #aaa;
+        background: #eee;
+        padding: 0.5rem;
+        margin-bottom: 0.4rem;
+        font-size: 0.8rem;
+        min-height: 1.8rem;
+      }
+      .block.tall {
+        min-height: 4rem;
+        background: #ccc;
+      }
+      .block.hero {
+        min-height: 7rem;
+        background: #bbb;
+        font-weight: 700;
+      }
+      a.back {
+        color: #0f2c56;
+      }
+    </style>
+  </head>
+  <body class="wf-page">
+    <p><a class="back" href="index.html">← Prototipo hi-fi</a></p>
+    <h1>Wireframes baja fidelidad — Home · Servicio · Contacto</h1>
+    <div class="cols">
+      <div class="wf-box">
+        <div class="wf-label">Home</div>
+        <h2>/</h2>
+        <div class="block">Logo · Nav · WA</div>
+        <div class="block hero">HERO full-bleed<br />MARCA · H1 · CTA WA · Ver servicios</div>
+        <div class="block">GATE: Hogar | Negocio</div>
+        <div class="block">Servicios ×4</div>
+        <div class="block tall">Productos ×3</div>
+        <div class="block">Soporte local + reseñas (ph)</div>
+        <div class="block">CTA final WA</div>
+        <div class="block">Footer · FAB</div>
+      </div>
+      <div class="wf-box">
+        <div class="wf-label">Servicio</div>
+        <h2>/camaras-de-seguridad</h2>
+        <div class="block">Logo · crumb · WA</div>
+        <div class="block hero">H1 servicio + intro + CTA</div>
+        <div class="block tall">Tipos de equipo</div>
+        <div class="block">Hogar | Negocio</div>
+        <div class="block">App / monitoreo</div>
+        <div class="block">FAQ</div>
+        <div class="block">CTA + footer</div>
+      </div>
+      <div class="wf-box">
+        <div class="wf-label">Contacto</div>
+        <h2>/contacto</h2>
+        <div class="block">Logo · nav</div>
+        <div class="block hero">H1 Contacto</div>
+        <div class="block">Canales: WA · email · ubicación</div>
+        <div class="block tall">Formulario</div>
+        <div class="block">Mapa placeholder</div>
+        <div class="block">Footer · FAB</div>
+      </div>
+    </div>
+  </body>
+</html>

@@ -1,0 +1,30 @@
+---
+description: Convenciones siempre activas del proyecto Cámaras y Alarmas San José (Astro, fases, SEO local).
+alwaysApply: true
+---
+
+# Proyecto: Cámaras y Alarmas San José
+
+## Documento maestro
+
+Leer y actualizar `requerimientos.md` al abrir/cerrar fases. Skills de proceso:
+
+- `.cursor/skills/client-work-practices`
+- `.cursor/skills/seo-expert-senior`
+- `.cursor/skills/astro-local-business`
+
+## Stack
+
+Astro SSG + Tailwind + `@astrojs/sitemap` + JSON-LD LocalBusiness. Conversión principal: WhatsApp `315 884 2167`. Hosting estático económico.
+
+## Fases
+
+No saltar fases ni marcar completadas con checklist abierto. Bloqueantes del cliente van en §10 de `requerimientos.md`.
+
+## Marca (confirmada 2026-09-25)
+
+**`brandName` = `Cámaras y Alarmas San José`**. "Guaraví" es legacy del sitio actual (`guarav.polsia.io`); no usar en UI del sitio nuevo.
+
+## Idioma
+
+UI y copy del sitio en **español** (Colombia). Comunicación del agente con el usuario en español.
