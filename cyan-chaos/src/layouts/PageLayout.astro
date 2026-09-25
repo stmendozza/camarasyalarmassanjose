@@ -1,0 +1,21 @@
+---
+import BaseLayout from './BaseLayout.astro';
+import PageShell from '../components/PageShell.astro';
+
+interface Props {
+	title: string;
+	description: string;
+	h1: string;
+	lead?: string;
+	pathname: string;
+	noindex?: boolean;
+}
+
+const { title, description, h1, lead, pathname, noindex } = Astro.props;
+---
+
+<BaseLayout {title} {description} pathname={pathname} {noindex}>
+	<PageShell {h1} {lead}>
+		<slot />
+	</PageShell>
+</BaseLayout>

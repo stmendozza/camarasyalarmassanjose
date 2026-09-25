@@ -9,13 +9,13 @@
 | 1 | Descubrimiento y auditoría de activos | ✅ Completada | 100% |
 | 2 | Arquitectura de información y SEO técnico | ✅ Completada | 100% |
 | 3 | Diseño UI/UX (wireframes + sistema visual) | ✅ Completada | 100% |
-| 4 | Setup del proyecto Astro (base técnica) | 🔄 En progreso | 0% |
+| 4 | Setup del proyecto Astro (base técnica) | ✅ Completada | 100% |
 | 5 | Maquetado de secciones y contenido | ⬜ Pendiente | 0% |
 | 6 | SEO on-page + datos estructurados | ⬜ Pendiente | 0% |
 | 7 | QA, performance y accesibilidad | ⬜ Pendiente | 0% |
 | 8 | Despliegue, indexación y monitoreo | ⬜ Pendiente | 0% |
 
-**Avance global del proyecto: 37.5%** (3 de 8 fases cerradas; Fase 4 en curso)
+**Avance global del proyecto: 50%** (4 de 8 fases cerradas; Fase 5 siguiente)
 
 **Marca confirmada:** Cámaras y Alarmas San José  
 **Prototipo F3:** aprobado 2026-09-25 → `prototypes/fase-03/`  
@@ -199,10 +199,11 @@ Términos a construir relevancia temática y geográfica (todos con intención l
 - [x] Sistema de diseño (color, tipografía, componentes) → `DESIGN.md` + `docs/fase-03/02-design-system.md`
 - [x] Prototipo de alta fidelidad **aprobado por el cliente** (2026-09-25) → `prototypes/fase-03/`
 
-### Fase 4 — Setup técnico Astro — 0%
-- [ ] Repositorio base + integraciones (Tailwind, sitemap, imágenes)
-- [ ] Layout base con metadatos y JSON-LD
-- [ ] Configuración de despliegue (Vercel/Netlify/Cloudflare Pages)
+### Fase 4 — Setup técnico Astro — ✅ 100%
+- [x] Repositorio base + integraciones (Tailwind, sitemap, `astro:assets` listo) → `cyan-chaos/`
+- [x] Layout base con metadatos y JSON-LD → `BaseLayout`, `SeoHead`, `src/data/site.ts`
+- [x] Colecciones de contenido (loaders glob) + rutas MVP del sitemap
+- [x] Configuración de despliegue (Cloudflare Pages / Netlify / Vercel) → `wrangler.toml`, `netlify.toml`, `vercel.json`, `public/_headers`
 
 ### Fase 5 — Maquetado y contenido — 0%
 - [ ] Home
@@ -238,5 +239,5 @@ Términos a construir relevancia temática y geográfica (todos con intención l
 ### Gate de fase
 
 - ~~Cerrar Fase 2~~ ✅ · ~~Cerrar Fase 3~~ ✅ (prototipo aprobado 2026-09-25)
-- **En curso: Fase 4** — repo Astro + Tailwind + sitemap + layout SEO base + deploy config.
-- Fase 5 solo tras checklist F4.
+- ~~Cerrar Fase 4~~ ✅ — scaffolding en `cyan-chaos/` (`npm run build` OK).
+- **En curso: Fase 5** — maquetado según prototipo F3 + copy desde colecciones.

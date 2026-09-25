@@ -1,0 +1,13 @@
+---
+import PageLayout from '../layouts/PageLayout.astro';
+import { getPageMeta } from '../data/pages-meta';
+---
+
+<PageLayout
+	title={getPageMeta('hogar').title}
+	description={getPageMeta('hogar').description}
+	h1={getPageMeta('hogar').h1}
+	pathname="/hogar"
+>
+	<p class="text-slate">Landing hogar — Fase 5.</p>
+</PageLayout>

@@ -1,0 +1,13 @@
+---
+import PageLayout from '../layouts/PageLayout.astro';
+import { getPageMeta } from '../data/pages-meta';
+---
+
+<PageLayout
+	title={getPageMeta('sobre-nosotros').title}
+	description={getPageMeta('sobre-nosotros').description}
+	h1={getPageMeta('sobre-nosotros').h1}
+	pathname="/sobre-nosotros"
+>
+	<p class="text-slate">Historia y E-E-A-T local — Fase 5.</p>
+</PageLayout>

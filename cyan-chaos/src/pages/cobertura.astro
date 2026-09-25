@@ -1,0 +1,27 @@
+---
+import PageLayout from '../layouts/PageLayout.astro';
+import { getPageMeta } from '../data/pages-meta';
+import { getCollection } from 'astro:content';
+
+const meta = getPageMeta('cobertura');
+const zones = (await getCollection('zones')).sort((a, b) => a.data.priority - b.data.priority);
+---
+
+<PageLayout title={meta.title} description={meta.description} h1={meta.h1} pathname="/cobertura">
+	<p class="mb-6 text-slate">
+		Zonas secundarias marcadas como pendientes de confirmación con el cliente (B3).
+	</p>
+	<ul class="space-y-4">
+		{
+			zones.map((zone) => (
+				<li class="rounded-(--radius-brand) border border-navy/10 bg-white p-4">
+					<h2 class="font-display text-lg font-semibold text-navy">{zone.data.name}</h2>
+					<p class="mt-1 text-sm text-slate">{zone.data.description}</p>
+					{!zone.data.confirmed && (
+						<p class="mt-2 text-xs font-mono text-gold">Pendiente confirmación</p>
+					)}
+				</li>
+			))
+		}
+	</ul>
+</PageLayout>

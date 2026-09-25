@@ -1,0 +1,18 @@
+---
+import PageLayout from '../layouts/PageLayout.astro';
+import { getPageMeta } from '../data/pages-meta';
+import { getEntry } from 'astro:content';
+
+const meta = getPageMeta('camaras-de-seguridad');
+const service = await getEntry('services', 'camaras-de-seguridad');
+---
+
+<PageLayout
+	title={meta.title}
+	description={meta.description}
+	h1={meta.h1}
+	lead={service?.data.summary}
+	pathname="/camaras-de-seguridad"
+>
+	<p class="text-slate">Contenido y catálogo de productos — Fase 5.</p>
+</PageLayout>
