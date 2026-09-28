@@ -1,21 +1,36 @@
 ---
 interface Props {
 	href?: string;
+	mark?: boolean;
 }
 
-const { href } = Astro.props;
+const { href, mark = false } = Astro.props;
 ---
 
 {
 	href ? (
-		<a class="brand" href={href}>
-			<span class="brand-name">Cámaras y Alarmas</span>
-			<span class="brand-place">San José</span>
+		<a class:list={['brand', mark && 'brand-lockup']} href={href}>
+			{mark && (
+				<img
+					class="brand-mark"
+					src="/brand-mark.png"
+					alt=""
+					width="160"
+					height="157"
+					decoding="async"
+				/>
+			)}
+			<span class="brand-copy">
+				<span class="brand-name">Cámaras y Alarmas</span>
+				<span class="brand-place">San José</span>
+			</span>
 		</a>
 	) : (
 		<p class="brand">
-			<span class="brand-name">Cámaras y Alarmas</span>
-			<span class="brand-place">San José</span>
+			<span class="brand-copy">
+				<span class="brand-name">Cámaras y Alarmas</span>
+				<span class="brand-place">San José</span>
+			</span>
 		</p>
 	)
 }

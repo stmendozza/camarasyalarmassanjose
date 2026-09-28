@@ -13,7 +13,7 @@
 | 5 | Maquetado de secciones y contenido | ✅ Completada | 100% |
 | 6 | SEO on-page + datos estructurados | ✅ Completada | 100% |
 | 7 | QA, performance y accesibilidad | ✅ Completada | 100% |
-| 8 | Despliegue, indexación y monitoreo | 🔄 En curso | 50% |
+| 8 | Despliegue, indexación y monitoreo | 🔄 En curso | 75% |
 
 **Avance global del proyecto: 87.5%** (7 de 8 fases cerradas; Fase 8 en curso)
 
@@ -232,7 +232,7 @@ Dirección visual sustituida el 2026-09-25. Canon: `DESIGN.md`. Auditoría: `doc
 ### Fase 8 — Despliegue e indexación — en curso
 - [x] Publicación en dominio final (`www.camarasyalarmassanjose.lat`)
 - [x] Alta en Google Search Console (conectada por el cliente, 2026-09-25)
-- [ ] Envío del sitemap nuevo: `https://www.camarasyalarmassanjose.lat/sitemap-index.xml` (después de redesplegar)
+- [x] Envío del sitemap: `sitemap-0.xml` en Search Console, estado Correcto, 11 páginas (2026-09-25). El índice puede quitarse de la lista: el recuento vive en el sitemap hijo.
 - [ ] Monitoreo inicial de posiciones para el clúster de keywords objetivo
 
 ---
@@ -249,4 +249,4 @@ Dirección visual sustituida el 2026-09-25. Canon: `DESIGN.md`. Auditoría: `doc
 - ~~Cerrar Fase 4~~ ✅ — scaffolding en `cyan-chaos/`. Dominio `https://camarasyalarmassanjose.lat`.
 - **Fase 6 cerrada** — titles, schema y sitemap alineados a `https://www.camarasyalarmassanjose.lat`.
 - **Fase 7 cerrada** — Lighthouse 100/100/100, contraste, teclado y visto bueno en teléfono real (2026-09-25).
-- **En curso: Fase 8** — reenviar `sitemap-index.xml` en Search Console (el intento del 2026-09-25 falló con «No se ha podido obtener»; el archivo ya responde 200) y monitorear el clúster. Hace falta redesplegar este build antes de reenviar.
+- **En curso: Fase 8** — sitemap `sitemap-0.xml` aceptado (11 páginas, 2026-09-25). Queda el monitoreo inicial de posiciones del clúster.
