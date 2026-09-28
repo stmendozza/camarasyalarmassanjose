@@ -1,6 +1,6 @@
 /** Single source de negocio — sincronizar `site` en astro.config.mjs al cambiar URL de producción. */
 export const site = {
-	brandName: 'Cámaras y Alarmas San José',
+	brandName: 'Cámaras de Seguridad San José',
 	brandNameLegacy: 'Guaraví',
 	tagline: 'Protege tu hogar o negocio',
 	phoneDisplay: '315 884 2167',

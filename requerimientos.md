@@ -1,6 +1,6 @@
-# Levantamiento de Requerimientos — Sitio Web "Cámaras y Alarmas San José"
+# Levantamiento de Requerimientos — Sitio Web "Cámaras de Seguridad San José"
 
-> Documento vivo de trazabilidad. Se actualiza fase a fase durante el desarrollo. Última actualización: 2026-09-25.
+> Documento vivo de trazabilidad. Se actualiza fase a fase durante el desarrollo. Última actualización: 2026-09-28.
 
 ## 0. Control de Avance del Proyecto
 
@@ -19,7 +19,7 @@
 
 **Dominio canónico:** `https://www.camarasyalarmassanjose.lat` (Vercel redirige el apex a www)
 
-**Marca confirmada:** Cámaras y Alarmas San José  
+**Marca confirmada:** Cámaras de Seguridad San José (renombrada 2026-09-28; antes “Cámaras y Alarmas San José”)  
 **UI vigente:** sistema oscuro editorial, referencia [guarav.polsia.io](https://guarav.polsia.io/) → `DESIGN.md` + `docs/fase-05/01-auditoria-ui.md`  
 **Prototipo F3 (archivado):** navy/dorado → `prototypes/fase-03/`  
 **Entregables:** `docs/fase-02/`, `docs/fase-03/`, `DESIGN.md` · **Skills:** `SKILLS.md`
@@ -68,7 +68,7 @@ Meta bloquea igualmente el scraping automatizado de perfiles de Facebook sin ses
 
 Extraído del flyer "¡Protege tu hogar o negocio!":
 
-- **Marca:** Cámaras y Alarmas San José (isotipo con escudo, cámara y check).
+- **Marca:** Cámaras de Seguridad San José (isotipo con escudo, cámara y manos).
 - **Propuesta de valor:** protección para hogar y negocio.
 - **Servicios listados:**
   - Cámaras de vigilancia en alta definición
@@ -89,7 +89,7 @@ El negocio ya tiene presencia digital fragmentada y con inconsistencias de marca
 
 ## 2. Objetivos del Proyecto
 
-1. Reconstruir el sitio desde cero en **Astro**, con marca unificada **Cámaras y Alarmas San José** (confirmada 2026-09-25; "Guaraví" queda como legacy del sitio actual).
+1. Reconstruir el sitio desde cero en **Astro**, con marca unificada **Cámaras de Seguridad San José** (renombrada 2026-09-28; "Guaraví" queda como legacy del sitio actual).
 2. Posicionar el sitio a nivel regional (San José del Guaviare) para el clúster de búsquedas objetivo (sección 4).
 3. Elevar el estándar de UI/UX frente al sitio actual (jerarquía visual, prueba social, catálogo de productos, conversión).
 4. Mantener costo operativo bajo y stack simple, alineado con el patrón de trabajo habitual (sitio estático, sin backend complejo, hosting económico tipo Vercel/Netlify/Cloudflare Pages).
@@ -166,7 +166,7 @@ Dirección visual sustituida el 2026-09-25. Canon: `DESIGN.md`. Auditoría: `doc
 
 - **Fondo continuo oscuro** (verde bosque casi negro), grotesca grande con tracking negativo, un solo panel lima.
 - **Home al ritmo del referente:** hero con ilustración de línea, filas de servicio 01–04, panel `03.` de mantenimiento, cierre WhatsApp + correo.
-- **Marca en UI:** Cámaras y Alarmas San José. No mostrar “Guaraví”.
+- **Marca en UI:** Cámaras de Seguridad San José. No mostrar “Guaraví”.
 - **Sitemap se conserva.** Hogar y negocio siguen como páginas; salen de la home la puerta dual y el catálogo de recuadros vacíos.
 - **Sin copy interno** (placeholders, fases, bloqueantes) visible para el visitante.
 - **WhatsApp** `315 884 2167` como acción primaria, píldora en el header.
@@ -195,7 +195,7 @@ Dirección visual sustituida el 2026-09-25. Canon: `DESIGN.md`. Auditoría: `doc
 - [ ] Auditoría de Facebook (bloqueada — pendiente de captura del cliente)
 
 ### Fase 2 — Arquitectura de información y SEO técnico — ✅ 100%
-- [x] Definición final de nombre de marca con el cliente → **Cámaras y Alarmas San José** (`docs/fase-02/04-marca-provisional.md`)
+- [x] Definición final de nombre de marca con el cliente → **Cámaras de Seguridad San José** (renombrada 2026-09-28; ver `docs/fase-02/04-marca-provisional.md`)
 - [x] Validación del sitemap propuesto (sección 5) → `docs/fase-02/01-sitemap-validado.md`
 - [x] Mapeo final de keywords a páginas → `docs/fase-02/02-keyword-map.md`
 - [x] Definición de estructura de datos (colecciones de contenido Astro) → `docs/fase-02/03-content-collections.md`
@@ -239,7 +239,7 @@ Dirección visual sustituida el 2026-09-25. Canon: `DESIGN.md`. Auditoría: `doc
 
 ## 10. Pendientes Abiertos (bloqueantes para avanzar de fase)
 
-1. ~~**B1 — Marca:**~~ ✅ Cerrado 2026-09-25 — **Cámaras y Alarmas San José**.
+1. ~~**B1 — Marca:**~~ ✅ Cerrado 2026-09-25; renombrada 2026-09-28 — **Cámaras de Seguridad San José**.
 2. **B2 — GBP / Facebook:** Obtener capturas/acceso a Google Business Profile y Facebook (no auditables de forma automática). Impacta prueba social en F3 y NAP en F6.
 3. ~~**B3 — Cobertura:**~~ ✅ Cerrado 2026-09-25. Base: **San José del Guaviare** (capital). También: **El Retorno, Calamar, Mapiripán y Concordia**. Miraflores no entra.
 

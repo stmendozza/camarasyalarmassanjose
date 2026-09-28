@@ -1,7 +1,7 @@
 ---
 name: astro-local-business
 description: >-
-  Implementa el sitio estático Astro + Tailwind de Cámaras y Alarmas San José:
+  Implementa el sitio estático Astro + Tailwind de Cámaras de Seguridad San José:
   islands mínimas, colecciones de contenido, SEO layout, assets y formularios
   externos. Usar al crear/configurar el proyecto Astro, layouts, pages,
   content collections, WhatsApp CTA o deploy estático.

@@ -1,4 +1,4 @@
-# Skills configurados — Cámaras y Alarmas San José
+# Skills configurados — Cámaras de Seguridad San José
 
 Inventario para el agente. Preferir skills de `.cursor/skills/` (proyecto); usar `.agents/skills/` como referencia especializada.
 

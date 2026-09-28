@@ -10,11 +10,11 @@
 | 1 | Validación del sitemap (§5) | ✅ Hecho → `01-sitemap-validado.md` |
 | 2 | Mapeo final keywords → páginas | ✅ Hecho → `02-keyword-map.md` |
 | 3 | Estructura de colecciones Astro | ✅ Hecho → `03-content-collections.md` |
-| 4 | Definición final de marca con cliente | ✅ **Cámaras y Alarmas San José** → `04-marca-provisional.md` |
+| 4 | Definición final de marca con cliente | ✅ **Cámaras de Seguridad San José** → `04-marca-provisional.md` |
 
 ## Supuestos (válidos hasta contradicción del cliente)
 
-1. Marca pública del nuevo sitio: **Cámaras y Alarmas San José** (confirmada).
+1. Marca pública del nuevo sitio: **Cámaras de Seguridad San José** (renombrada 2026-09-28).
 2. "Guaraví" = nombre legacy del sitio actual; no se usa en UI nueva.
 3. Conversión primaria: WhatsApp `315 884 2167`.
 4. Zona primaria: San José del Guaviare; cercanas (El Retorno, Calamar, Miraflores) = hipotéticas hasta B3.

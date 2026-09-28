@@ -1,20 +1,24 @@
 # Decisión de marca — B1 cerrado
 
-**Fecha decisión:** 2026-09-25  
+**Fecha decisión inicial:** 2026-09-25  
+**Última actualización:** 2026-09-28 — renombre comercial  
 **Estado:** ✅ Confirmado por el cliente
 
 ## Marca definitiva
 
-**`brandName` = `Cámaras y Alarmas San José`**
+**`brandName` = `Cámaras de Seguridad San José`**
 
 | Campo | Valor |
 |-------|--------|
-| Nombre comercial / UI | Cámaras y Alarmas San José |
+| Nombre comercial / UI | Cámaras de Seguridad San José |
+| Wordmark (línea 1) | Cámaras de Seguridad |
+| Wordmark (línea 2) | San José |
+| Nombre anterior (2026-09-25 → 2026-09-28) | Cámaras y Alarmas San José |
 | Legacy (sitio actual) | Guaraví — no usar en UI nueva |
-| Email actual | guarav@polsia.app (revisar en F8 si cambia) |
+| Email | camarasyalarmassanjose@gmail.com |
 | WhatsApp | 315 884 2167 |
-| Dirección visual F3 | Isotipo escudo/cámara del flyer; paleta azul/dorado |
+| Isotipo | Escudo / cámara / manos (`favicon.ico` → header + favicon) |
 
 ## Contexto histórico
 
-El sitio `guarav.polsia.io` usaba "Guaraví"; el flyer y la marca oficial del nuevo sitio unifican bajo **Cámaras y Alarmas San José**.
+El sitio `guarav.polsia.io` usaba "Guaraví". El nuevo sitio unificó primero bajo **Cámaras y Alarmas San José** (2026-09-25) y el cliente renombró a **Cámaras de Seguridad San José** el 2026-09-28.

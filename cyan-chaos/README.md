@@ -1,4 +1,4 @@
-# Cámaras y Alarmas San José — sitio Astro
+# Cámaras de Seguridad San José — sitio Astro
 
 App estática (Fase 4). Diseño canon: `../DESIGN.md` · prototipo: `../prototypes/fase-03/`.
 

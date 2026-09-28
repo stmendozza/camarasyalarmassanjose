@@ -1,4 +1,4 @@
-# Docs — Cámaras y Alarmas San José
+# Docs — Cámaras de Seguridad San José
 
 ## Fases
 

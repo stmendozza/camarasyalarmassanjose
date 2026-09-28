@@ -1,8 +1,8 @@
-# DESIGN.md — Cámaras y Alarmas San José
+# DESIGN.md — Cámaras de Seguridad San José
 
 **Vigente desde 2026-09-25.** Reemplaza el mundo “puesto de vigilancia” (navy + dorado + Barlow Condensed) del prototipo `prototypes/fase-03/`. Esa versión queda como archivo, no como UI de producción.
 
-Referencia visual obligatoria: [guarav.polsia.io](https://guarav.polsia.io/). Se copia el sistema (ritmo, tipo, color, composición). No se copia el nombre “Guaraví”: la marca en pantalla sigue siendo **Cámaras y Alarmas San José**.
+Referencia visual obligatoria: [guarav.polsia.io](https://guarav.polsia.io/). Se copia el sistema (ritmo, tipo, color, composición). No se copia el nombre “Guaraví”: la marca en pantalla es **Cámaras de Seguridad San José**.
 
 ## World
 
@@ -52,7 +52,7 @@ Prohibido en UI nueva: navy `#0F2C56`, oro `#C4A035`, papel `#EEF2F6`, scanlines
 
 ## Wordmark
 
-- Header y pie: **Cámaras y Alarmas** con punto verde, y debajo o al lado en pequeño **San José**.
+- Header y pie: **Cámaras de Seguridad** con línea verde, y debajo en pequeño **San José**.
 - El hero no repite el nombre legal en 72px (no cabe y rompe el parecido). El H1 es la promesa, al estilo de la segunda lectura del referente: una frase corta de oficio.
 - “Guaraví” no aparece en la interfaz.
 

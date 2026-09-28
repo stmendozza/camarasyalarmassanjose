@@ -1,7 +1,7 @@
 ---
 name: seo-expert-senior
 description: >-
-  Estratega SEO senior para el sitio local Astro de Cámaras y Alarmas San José
+  Estratega SEO senior para el sitio local Astro de Cámaras de Seguridad San José
   (San José del Guaviare): clusters de keywords, LocalBusiness, NAP, CWV e
   indexación. Usar en auditorías SEO, mapeo keyword→página, schema, sitemaps,
   Search Console o posicionamiento local.

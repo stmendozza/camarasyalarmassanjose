@@ -1,9 +1,9 @@
 ---
-description: Convenciones siempre activas del proyecto Cámaras y Alarmas San José (Astro, fases, SEO local).
+description: Convenciones siempre activas del proyecto Cámaras de Seguridad San José (Astro, fases, SEO local).
 alwaysApply: true
 ---
 
-# Proyecto: Cámaras y Alarmas San José
+# Proyecto: Cámaras de Seguridad San José
 
 ## Documento maestro
 
@@ -23,7 +23,7 @@ No saltar fases ni marcar completadas con checklist abierto. Bloqueantes del cli
 
 ## Marca (confirmada 2026-09-25)
 
-**`brandName` = `Cámaras y Alarmas San José`**. "Guaraví" es legacy del sitio actual (`guarav.polsia.io`); no usar en UI del sitio nuevo.
+**`brandName` = `Cámaras de Seguridad San José`**. "Guaraví" es legacy del sitio actual (`guarav.polsia.io`); no usar en UI del sitio nuevo.
 
 ## Idioma
 

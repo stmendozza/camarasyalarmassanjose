@@ -27,7 +27,7 @@ El sitio nuevo no se parece al referente y tampoco se siente como una empresa de
 | Servicios | Filas 01–04 con icono, no cards | Filas que enlazan a las URLs ya existentes |
 | Acento | Un panel lima `03.` con punto coral | Un solo panel así, en mantenimiento |
 | Cierre | WhatsApp + correo + ciudad, sin mapa falso | Igual |
-| Marca en pantalla | “Guaraví.” | **No.** Cámaras y Alarmas San José |
+| Marca en pantalla | “Guaraví.” | **No.** Cámaras de Seguridad San José |
 
 ## Qué no copiar
 

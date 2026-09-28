@@ -9,7 +9,7 @@ Archivo previsto: `src/data/site.ts` (o `src/content/config` + data).
 
 ```ts
 export const site = {
-  brandName: 'Cámaras y Alarmas San José', // confirmado 2026-09-25
+  brandName: 'Cámaras de Seguridad San José', // confirmado 2026-09-28
   brandNameLegacy: 'Guaraví',
   tagline: 'Protege tu hogar o negocio',
   phoneDisplay: '315 884 2167',

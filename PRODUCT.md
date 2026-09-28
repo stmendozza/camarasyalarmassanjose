@@ -1,4 +1,4 @@
-# PRODUCT.md — Cámaras y Alarmas San José
+# PRODUCT.md — Cámaras de Seguridad San José
 
 ## Producto
 
@@ -16,7 +16,7 @@ Contactar por **WhatsApp** (`315 884 2167`) para cotizar o agendar.
 
 ## Marca
 
-**Cámaras y Alarmas San José** (confirmada). Legacy: Guaraví (no usar en UI).
+**Cámaras de Seguridad San José** (confirmada 2026-09-28). Legacy: Guaraví (no usar en UI).
 
 ## Prueba / oferta (flyer)
 

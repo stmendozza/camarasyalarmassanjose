@@ -126,7 +126,7 @@ main p a:not(.btn) {
 }
 .brand-name {
 	font-weight: 600;
-	font-size: 0.86rem;
+	font-size: 0.78rem;
 	letter-spacing: -0.04em;
 	color: var(--fg);
 	white-space: nowrap;
@@ -164,7 +164,7 @@ main p a:not(.btn) {
 
 @media (min-width: 720px) {
 	.brand-name {
-		font-size: 1.12rem;
+		font-size: 1.02rem;
 	}
 	.brand-place {
 		font-size: 0.68rem;

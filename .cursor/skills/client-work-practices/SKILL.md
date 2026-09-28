@@ -1,13 +1,13 @@
 ---
 name: client-work-practices
 description: >-
-  Gobierna el trabajo fase a fase del sitio Cámaras y Alarmas San José: alcance
+  Gobierna el trabajo fase a fase del sitio Cámaras de Seguridad San José: alcance
   cerrado, checklists de requerimientos.md, bloqueantes del cliente y criterios
   de cierre. Usar al iniciar/cerrar fases, actualizar avance, negociar pendientes
   o cuando el usuario mencione fases, alcance, bloqueantes o client-work-practices.
 ---
 
-# Client work practices — Cámaras y Alarmas San José
+# Client work practices — Cámaras de Seguridad San José
 
 ## Fuente de verdad
 
@@ -42,12 +42,12 @@ description: >-
 
 | ID | Bloqueante | Impacta |
 |----|------------|---------|
-| B1 | ~~Nombre de marca~~ ✅ Cámaras y Alarmas San José | — |
+| B1 | ~~Nombre de marca~~ ✅ Cámaras de Seguridad San José | — |
 | B2 | Capturas/acceso GBP y Facebook | F3 prueba social, F6 NAP |
 | B3 | Zonas de cobertura exactas | `/cobertura`, schema `areaServed` |
 
 - **Trabajo permitido con B1 abierto:** ~~N/A — B1 cerrado.~~
-- **Marca en código/docs:** siempre `Cámaras y Alarmas San José`.
+- **Marca en código/docs:** siempre `Cámaras de Seguridad San José`.
 
 ## Entregables por tipo de fase
 
