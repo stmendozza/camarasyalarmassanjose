@@ -1,6 +1,6 @@
 # Levantamiento de Requerimientos — Sitio Web "Cámaras de Seguridad San José"
 
-> Documento vivo de trazabilidad. Se actualiza fase a fase durante el desarrollo. Última actualización: 2026-09-28.
+> Documento vivo de trazabilidad. Se actualiza fase a fase durante el desarrollo. Última actualización: 2026-09-30.
 
 ## 0. Control de Avance del Proyecto
 
@@ -20,7 +20,7 @@
 **Dominio canónico:** `https://www.camarasyalarmassanjose.lat` (Vercel redirige el apex a www)
 
 **Marca confirmada:** Cámaras de Seguridad San José (renombrada 2026-09-28; antes “Cámaras y Alarmas San José”)  
-**UI vigente:** sistema oscuro editorial, referencia [guarav.polsia.io](https://guarav.polsia.io/) → `DESIGN.md` + `docs/fase-05/01-auditoria-ui.md`  
+**UI vigente:** home convierte (explorer + modal WhatsApp); menú/footer/guías enlazan páginas SEO del clúster → `DESIGN.md`  
 **Prototipo F3 (archivado):** navy/dorado → `prototypes/fase-03/`  
 **Entregables:** `docs/fase-02/`, `docs/fase-03/`, `DESIGN.md` · **Skills:** `SKILLS.md`
 

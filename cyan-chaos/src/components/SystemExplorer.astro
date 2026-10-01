@@ -1,0 +1,307 @@
+---
+import { landingSystems } from '../data/navigation';
+import { site } from '../data/site';
+
+const systems = landingSystems;
+const total = systems.length;
+---
+
+<div class="sysx" id="system-explorer" data-total={total}>
+	<div class="sysx-rail" role="tablist" aria-label="Sistemas de seguridad" aria-orientation="vertical">
+		{
+			systems.map((system, index) => (
+				<button
+					class="sysx-tab"
+					type="button"
+					role="tab"
+					id={`sysx-tab-${system.id}`}
+					aria-controls={`sysx-panel-${system.id}`}
+					aria-selected={index === 0 ? 'true' : 'false'}
+					tabindex={index === 0 ? 0 : -1}
+					data-index={index}
+					data-id={system.id}
+				>
+					<span class="sysx-tab-num" aria-hidden="true">{String(index + 1).padStart(2, '0')}</span>
+					<span class="sysx-tab-copy">
+						<span class="sysx-tab-short">{system.short}</span>
+						<span class="sysx-tab-title">{system.navTitle ?? system.title}</span>
+					</span>
+				</button>
+			))
+		}
+	</div>
+
+	<div class="sysx-stage">
+		{
+			systems.map((system, index) => {
+				const wa = `${site.whatsappUrl}?text=${encodeURIComponent(`Hola, me interesa: ${system.title}.`)}`;
+				return (
+					<div
+						class="sysx-panel"
+						role="tabpanel"
+						id={`sysx-panel-${system.id}`}
+						aria-labelledby={`sysx-tab-${system.id}`}
+						data-index={index}
+						data-id={system.id}
+						hidden={index !== 0}
+					>
+						<div class="sysx-panel-top">
+							<p class="sysx-tag">{system.tag}</p>
+							<p class="sysx-count" aria-hidden="true">
+								<span data-sysx-current>{String(index + 1).padStart(2, '0')}</span>
+								<span class="sysx-count-sep">/</span>
+								{String(total).padStart(2, '0')}
+							</p>
+						</div>
+
+						<div class="sysx-visual" data-icon={system.icon} aria-hidden="true">
+							{system.icon === 'cam' && (
+								<svg viewBox="0 0 64 64" width="72" height="72">
+									<rect x="8" y="20" width="32" height="24" rx="4" fill="none" stroke="currentColor" stroke-width="2.2" />
+									<path d="M40 28l14-6v20l-14-6z" fill="none" stroke="currentColor" stroke-width="2.2" />
+									<circle cx="24" cy="32" r="5" fill="none" stroke="currentColor" stroke-width="2" />
+								</svg>
+							)}
+							{system.icon === 'bell' && (
+								<svg viewBox="0 0 64 64" width="72" height="72">
+									<path
+										d="M32 10a14 14 0 0 0-14 14v8l-5 10h38l-5-10v-8A14 14 0 0 0 32 10zM26 50a6 6 0 0 0 12 0"
+										fill="none"
+										stroke="currentColor"
+										stroke-width="2.2"
+										stroke-linejoin="round"
+									/>
+								</svg>
+							)}
+							{system.icon === 'gear' && (
+								<svg viewBox="0 0 64 64" width="72" height="72">
+									<circle cx="32" cy="32" r="10" fill="none" stroke="currentColor" stroke-width="2.2" />
+									<path
+										d="M32 8v8M32 48v8M8 32h8M48 32h8M14 14l6 6M44 44l6 6M14 50l6-6M44 20l6-6"
+										fill="none"
+										stroke="currentColor"
+										stroke-width="2.2"
+										stroke-linecap="round"
+									/>
+								</svg>
+							)}
+							{system.icon === 'wrench' && (
+								<svg viewBox="0 0 64 64" width="72" height="72">
+									<path
+										d="M38 16a12 12 0 0 0-16 16L10 44l6 6 12-12a12 12 0 0 0 16-16l-7 7-6-6 7-7z"
+										fill="none"
+										stroke="currentColor"
+										stroke-width="2.2"
+										stroke-linejoin="round"
+									/>
+								</svg>
+							)}
+						</div>
+
+						<h3 class="sysx-title">{system.title}</h3>
+						<p class="sysx-lead">{system.lead}</p>
+						<ul class="sysx-points">
+							{system.points.map((point) => (
+								<li>{point}</li>
+							))}
+						</ul>
+						<div class="btn-row sysx-actions">
+							<a class="btn btn-gold" href={wa} target="_blank" rel="noopener noreferrer">
+								{system.cta}
+								<svg viewBox="0 0 16 16" width="14" height="14" aria-hidden="true">
+									<path d="M3 8h8M8 4l4 4-4 4" fill="none" stroke="currentColor" stroke-width="1.5" />
+								</svg>
+							</a>
+							<button class="btn btn-glass" type="button" data-sysx-open={system.id}>
+								Más detalle
+							</button>
+						</div>
+					</div>
+				);
+			})
+		}
+
+		<div class="sysx-controls">
+			<button class="sysx-nav" type="button" data-sysx-prev aria-label="Sistema anterior">
+				<svg viewBox="0 0 16 16" width="16" height="16" aria-hidden="true">
+					<path d="M10 3L5 8l5 5" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" />
+				</svg>
+			</button>
+			<div class="sysx-dots" aria-hidden="true">
+				{systems.map((_, index) => (
+					<span class:list={['sysx-dot', index === 0 && 'is-on']} data-dot={index} />
+				))}
+			</div>
+			<button class="sysx-nav" type="button" data-sysx-next aria-label="Siguiente sistema">
+				<svg viewBox="0 0 16 16" width="16" height="16" aria-hidden="true">
+					<path d="M6 3l5 5-5 5" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" />
+				</svg>
+			</button>
+		</div>
+	</div>
+</div>
+
+<dialog class="sysx-dialog" id="sysx-dialog" aria-labelledby="sysx-dialog-title">
+	<div class="sysx-dialog-shell">
+		<button class="sysx-dialog-close" type="button" data-sysx-close aria-label="Cerrar detalle">
+			<svg viewBox="0 0 16 16" width="16" height="16" aria-hidden="true">
+				<path d="M4 4l8 8M12 4l-8 8" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" />
+			</svg>
+		</button>
+
+		{
+			systems.map((system, index) => {
+				const wa = `${site.whatsappUrl}?text=${encodeURIComponent(`Hola, quiero más detalle sobre: ${system.title}.`)}`;
+				return (
+					<article
+						class="sysx-dialog-panel"
+						data-dialog-panel={system.id}
+						hidden={index !== 0}
+					>
+						<p class="sysx-tag">{system.tag}</p>
+						<h2 class="sysx-dialog-title" id={index === 0 ? 'sysx-dialog-title' : undefined}>
+							{system.title}
+						</h2>
+						<p class="sysx-dialog-intro">{system.detail.intro}</p>
+						<ul class="sysx-dialog-list">
+							{system.detail.bullets.map((item) => (
+								<li>{item}</li>
+							))}
+						</ul>
+						<p class="sysx-dialog-note">{system.detail.note}</p>
+						<div class="btn-row sysx-dialog-actions">
+							<a class="btn btn-gold" href={wa} target="_blank" rel="noopener noreferrer">
+								{system.cta}
+								<svg viewBox="0 0 16 16" width="14" height="14" aria-hidden="true">
+									<path d="M3 8h8M8 4l4 4-4 4" fill="none" stroke="currentColor" stroke-width="1.5" />
+								</svg>
+							</a>
+							<a class="btn btn-glass" href={system.href}>
+								Ver guía completa
+							</a>
+						</div>
+					</article>
+				);
+			})
+		}
+	</div>
+</dialog>
+
+<script>
+	const root = document.getElementById('system-explorer');
+	const dialog = document.getElementById('sysx-dialog');
+
+	if (root) {
+		const tabs = [...root.querySelectorAll('.sysx-tab')];
+		const panels = [...root.querySelectorAll('.sysx-panel')];
+		const dots = [...root.querySelectorAll('.sysx-dot')];
+		const prevBtn = root.querySelector('[data-sysx-prev]');
+		const nextBtn = root.querySelector('[data-sysx-next]');
+		const dialogPanels = dialog ? [...dialog.querySelectorAll('[data-dialog-panel]')] : [];
+		const total = tabs.length;
+		let index = 0;
+		let lastFocus = null;
+
+		const setIndex = (next, { focusTab = false, syncHash = true } = {}) => {
+			index = (next + total) % total;
+			tabs.forEach((tab, i) => {
+				const on = i === index;
+				tab.setAttribute('aria-selected', String(on));
+				tab.tabIndex = on ? 0 : -1;
+				tab.classList.toggle('is-active', on);
+				if (on && focusTab) tab.focus();
+			});
+			panels.forEach((panel, i) => {
+				const on = i === index;
+				panel.hidden = !on;
+				panel.classList.toggle('is-active', on);
+			});
+			dots.forEach((dot, i) => dot.classList.toggle('is-on', i === index));
+			if (syncHash) {
+				const id = tabs[index]?.dataset.id;
+				if (id && history.replaceState) {
+					history.replaceState(null, '', `#${id}`);
+				}
+			}
+		};
+
+		const showDialogFor = (id) => {
+			if (!dialog || typeof dialog.showModal !== 'function') return;
+			const found = tabs.findIndex((tab) => tab.dataset.id === id);
+			if (found >= 0) setIndex(found, { syncHash: true });
+			dialogPanels.forEach((panel) => {
+				panel.hidden = panel.dataset.dialogPanel !== id;
+			});
+			const activeTitle = dialog.querySelector('[data-dialog-panel]:not([hidden]) .sysx-dialog-title');
+			if (activeTitle) activeTitle.id = 'sysx-dialog-title';
+			dialog.querySelectorAll('.sysx-dialog-title').forEach((title) => {
+				if (title !== activeTitle) title.removeAttribute('id');
+			});
+			lastFocus = document.activeElement;
+			if (!dialog.open) dialog.showModal();
+		};
+
+		const closeDialog = () => {
+			if (!dialog?.open) return;
+			dialog.close();
+			if (lastFocus && typeof lastFocus.focus === 'function') lastFocus.focus();
+		};
+
+		tabs.forEach((tab) => {
+			tab.addEventListener('click', () => {
+				setIndex(Number(tab.dataset.index));
+			});
+			tab.addEventListener('keydown', (event) => {
+				const vertical = window.matchMedia('(min-width: 900px)').matches;
+				if (event.key === 'ArrowDown' || (!vertical && event.key === 'ArrowRight')) {
+					event.preventDefault();
+					setIndex(index + 1, { focusTab: true });
+				} else if (event.key === 'ArrowUp' || (!vertical && event.key === 'ArrowLeft')) {
+					event.preventDefault();
+					setIndex(index - 1, { focusTab: true });
+				} else if (event.key === 'Home') {
+					event.preventDefault();
+					setIndex(0, { focusTab: true });
+				} else if (event.key === 'End') {
+					event.preventDefault();
+					setIndex(total - 1, { focusTab: true });
+				}
+			});
+		});
+
+		prevBtn?.addEventListener('click', () => setIndex(index - 1));
+		nextBtn?.addEventListener('click', () => setIndex(index + 1));
+
+		root.querySelectorAll('[data-sysx-open]').forEach((btn) => {
+			btn.addEventListener('click', () => showDialogFor(btn.dataset.sysxOpen));
+		});
+
+		dialog?.querySelectorAll('[data-sysx-close]').forEach((btn) => {
+			btn.addEventListener('click', () => closeDialog());
+		});
+
+		dialog?.addEventListener('click', (event) => {
+			if (event.target === dialog) closeDialog();
+		});
+
+		const fromHash = (scroll = false) => {
+			const hash = location.hash.replace('#', '');
+			if (!hash || hash === 'sistemas') {
+				setIndex(0, { syncHash: false });
+				if (scroll && hash === 'sistemas') {
+					document.getElementById('sistemas')?.scrollIntoView({ block: 'start' });
+				}
+				return;
+			}
+			const found = tabs.findIndex((tab) => tab.dataset.id === hash);
+			if (found >= 0) {
+				setIndex(found, { syncHash: false });
+				if (scroll) {
+					document.getElementById('sistemas')?.scrollIntoView({ block: 'start' });
+				}
+			}
+		};
+		fromHash(true);
+		window.addEventListener('hashchange', () => fromHash(true));
+	}
+</script>

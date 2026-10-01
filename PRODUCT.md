@@ -24,9 +24,9 @@ Contactar por **WhatsApp** (`315 884 2167`) para cotizar o agendar.
 - Instalación profesional incluida
 - Soporte técnico local + envíos en la zona
 
-## Modo de superficie (home y landings)
+## Modo de superficie (home)
 
-**Persuade** — decidir y actuar (WhatsApp).
+**Persuade / landing de conversión** — promesa → sistemas → público → proceso → WhatsApp (ritmo tipo producto tech). Las páginas internas siguen para SEO profundo.
 
 ## Constraints
 

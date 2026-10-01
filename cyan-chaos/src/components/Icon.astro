@@ -1,0 +1,162 @@
+---
+/**
+ * Iconos lineales 24×24 para el home (fuera de hero y SystemExplorer).
+ * Trazo fino, currentColor — el color lo define el contenedor.
+ */
+type IconName =
+	| 'phone'
+	| 'install'
+	| 'support'
+	| 'home'
+	| 'store'
+	| 'building'
+	| 'chat'
+	| 'plan'
+	| 'ready'
+	| 'pin'
+	| 'whatsapp'
+	| 'mail'
+	| 'arrow';
+
+interface Props {
+	name: IconName;
+	size?: number;
+	class?: string;
+}
+
+const { name, size = 22, class: className } = Astro.props;
+---
+
+<svg
+	class:list={['lp-ico', className]}
+	viewBox="0 0 24 24"
+	width={size}
+	height={size}
+	fill="none"
+	stroke="currentColor"
+	stroke-width="1.6"
+	stroke-linecap="round"
+	stroke-linejoin="round"
+	aria-hidden="true"
+>
+	{
+		name === 'phone' && (
+			<>
+				<rect x="7" y="2.5" width="10" height="19" rx="2.2" />
+				<circle cx="12" cy="17.5" r="0.9" fill="currentColor" stroke="none" />
+				<path d="M10 5.5h4" />
+			</>
+		)
+	}
+	{
+		name === 'install' && (
+			<>
+				<path d="M12 3v11" />
+				<path d="M8.5 10.5 12 14l3.5-3.5" />
+				<path d="M5 17.5v1.5A2 2 0 0 0 7 21h10a2 2 0 0 0 2-2v-1.5" />
+			</>
+		)
+	}
+	{
+		name === 'support' && (
+			<>
+				<path d="M12 21a8.5 8.5 0 1 0-7.4-4.3" />
+				<path d="M4.5 16.5v3.2h3.2" />
+				<path d="M9.2 11.2h.01M12 11.2h.01M14.8 11.2h.01" />
+			</>
+		)
+	}
+	{
+		name === 'home' && (
+			<>
+				<path d="M4 10.5 12 4l8 6.5" />
+				<path d="M6.5 9.5V20h11V9.5" />
+				<path d="M10 20v-5.5h4V20" />
+			</>
+		)
+	}
+	{
+		name === 'store' && (
+			<>
+				<path d="M4 9.5 5.5 4h13L20 9.5" />
+				<path d="M4 9.5h16v2a2.5 2.5 0 0 1-5 0 2.5 2.5 0 0 1-5 0 2.5 2.5 0 0 1-5 0v-2z" />
+				<path d="M5.5 14v6h13v-6" />
+				<path d="M10 20v-4h4v4" />
+			</>
+		)
+	}
+	{
+		name === 'building' && (
+			<>
+				<path d="M4 20h16" />
+				<path d="M6 20V5.5A1.5 1.5 0 0 1 7.5 4H14v16" />
+				<path d="M14 10h3.5A1.5 1.5 0 0 1 19 11.5V20" />
+				<path d="M8.5 8h2M8.5 11.5h2M8.5 15h2M16 14h1.2M16 17h1.2" />
+			</>
+		)
+	}
+	{
+		name === 'chat' && (
+			<>
+				<path d="M5 18.5 7.2 16H17a3 3 0 0 0 3-3V7a3 3 0 0 0-3-3H7a3 3 0 0 0-3 3v11.5z" />
+				<path d="M8.5 9.5h7M8.5 12.5h4.5" />
+			</>
+		)
+	}
+	{
+		name === 'plan' && (
+			<>
+				<path d="M8 4h9.5A1.5 1.5 0 0 1 19 5.5v13A1.5 1.5 0 0 1 17.5 20H8" />
+				<path d="M8 4a2 2 0 0 0-2 2v12a2 2 0 0 0 2 2" />
+				<path d="M10.5 8.5h5M10.5 12h5M10.5 15.5h3" />
+			</>
+		)
+	}
+	{
+		name === 'ready' && (
+			<>
+				<circle cx="12" cy="12" r="8.5" />
+				<path d="M8.5 12.2 11 14.7 15.5 9.5" />
+			</>
+		)
+	}
+	{
+		name === 'pin' && (
+			<>
+				<path d="M12 21s6.5-5.2 6.5-10.2A6.5 6.5 0 0 0 5.5 10.8C5.5 15.8 12 21 12 21z" />
+				<circle cx="12" cy="10.5" r="2.2" />
+			</>
+		)
+	}
+	{
+		name === 'whatsapp' && (
+			<>
+				<path
+					d="M12 3.5a8.5 8.5 0 0 0-7.3 12.9L3.5 20.5l4.2-1.1A8.5 8.5 0 1 0 12 3.5z"
+					stroke-width="1.5"
+				/>
+				<path
+					d="M9.2 8.8c.2-.45.4-.47.74-.5h.55c.18 0 .38 0 .52.4l.78 1.9c.12.3.05.42-.14.64l-.36.42c-.16.18-.34.38-.15.7.2.32.9 1.48 2.1 2.4 1.28.98 2.36 1.22 2.7 1.36.34.14.54.12.74-.14l.62-.82c.16-.22.36-.18.6-.1l1.72.8c.24.12.4.18.46.42.06.24.02.98-.4 1.7-.42.72-1.55 1.2-2.55 1.28-.86.06-1.95-.1-3.3-.72-1.7-.78-3.05-2.2-4.05-3.85-.9-1.48-1.32-2.9-1.4-3.55-.1-.7.12-1.35.55-1.8z"
+					fill="currentColor"
+					stroke="none"
+				/>
+			</>
+		)
+	}
+	{
+		name === 'mail' && (
+			<>
+				<rect x="3.5" y="5.5" width="17" height="13" rx="2" />
+				<path d="m4.5 7.5 7.5 5.5 7.5-5.5" />
+			</>
+		)
+	}
+	{
+		name === 'arrow' && (
+			<>
+				<path d="M4 12h14" />
+				<path d="m13 6 5 6-5 6" />
+			</>
+		)
+	}
+</svg>

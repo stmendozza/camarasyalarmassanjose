@@ -23,7 +23,7 @@ const faqs = (await getCollection('faqs')).filter((entry) => entry.data.pageSlug
 		lead="Sensores, paneles y alertas para proteger casa o local, con instalación y soporte en San José del Guaviare."
 	/>
 
-	<section class="section">
+	<section class="section section-band">
 		<div class="wrap">
 			<div class="section-head">
 				<p class="kicker">Equipos</p>
@@ -61,9 +61,8 @@ const faqs = (await getCollection('faqs')).filter((entry) => entry.data.pageSlug
 					<p>Accesos, bodega y áreas fuera de horario. Se combina con cámaras si quieres ver qué pasó.</p>
 				</div>
 			</div>
-			<p style="margin-top: 1.25rem">
+			<p class="page-links">
 				<a href="/camaras-de-seguridad">Ver cámaras</a>
-				{' · '}
 				<a href="/instalacion">Instalación</a>
 			</p>
 		</div>

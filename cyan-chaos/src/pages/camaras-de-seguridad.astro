@@ -21,7 +21,7 @@ const faqs = (await getCollection('faqs')).filter((entry) =>
 <BaseLayout title={meta.title} description={meta.description} pathname="/camaras-de-seguridad">
 	<PageHero crumb="Cámaras" h1={meta.h1} lead="Instalación profesional, monitoreo en vivo con app y soporte técnico local para hogar y negocio." />
 
-	<section class="section">
+	<section class="section section-band">
 		<div class="wrap">
 			<div class="section-head">
 				<p class="kicker">Equipos</p>
@@ -70,11 +70,9 @@ const faqs = (await getCollection('faqs')).filter((entry) =>
 					</p>
 				</div>
 			</div>
-			<p style="margin-top: 1.25rem">
+			<p class="page-links">
 				<a href="/hogar">Ver soluciones para el hogar</a>
-				{' · '}
 				<a href="/negocios">Ver soluciones para negocios</a>
-				{' · '}
 				<a href="/instalacion">Cómo instalamos</a>
 			</p>
 		</div>

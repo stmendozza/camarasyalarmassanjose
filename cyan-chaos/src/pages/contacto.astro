@@ -9,16 +9,19 @@ const meta = getPageMeta('contacto');
 
 <BaseLayout title={meta.title} description={meta.description} pathname="/contacto">
 	<header class="page-hero">
-		<div class="wrap">
-			<p class="crumb"><a href="/">Inicio</a> / Contacto</p>
+		<div class="page-hero-veil" aria-hidden="true"></div>
+		<div class="wrap page-hero-inner">
+			<p class="crumb"><a href="/">Inicio</a> <span aria-hidden="true">/</span> Contacto</p>
 			<h1>{meta.h1}</h1>
-			<p>WhatsApp es el canal más rápido. También puedes dejar tus datos y continuar la conversación ahí.</p>
+			<p class="page-hero-lead">
+				WhatsApp es el canal más rápido. También puedes dejar tus datos y continuar la conversación ahí.
+			</p>
 		</div>
 	</header>
 
-	<section class="section">
+	<section class="section section-band">
 		<div class="wrap contact-grid">
-			<div>
+			<div class="glass-panel contact-aside">
 				<div class="section-head">
 					<p class="kicker">Canales</p>
 					<h2>Habla con nosotros</h2>

@@ -1,36 +1,42 @@
 ---
+import { Image } from 'astro:assets';
+import logo from '../content/logo.png';
+
 interface Props {
 	href?: string;
-	mark?: boolean;
 }
 
-const { href, mark = false } = Astro.props;
+const { href } = Astro.props;
 ---
 
 {
 	href ? (
-		<a class:list={['brand', mark && 'brand-lockup']} href={href}>
-			{mark && (
-				<img
-					class="brand-mark"
-					src="/brand-mark.png"
-					alt=""
-					width="160"
-					height="157"
-					decoding="async"
-				/>
-			)}
-			<span class="brand-copy">
-				<span class="brand-name">Cámaras de Seguridad</span>
-				<span class="brand-place">San José</span>
-			</span>
+		<a class="brand brand-logo" href={href} aria-label="Cámaras de Seguridad San José">
+			<Image
+				src={logo}
+				alt=""
+				class="brand-logo-img"
+				widths={[280, 400, 520, 700]}
+				sizes="(min-width: 720px) 288px, 248px"
+				format="webp"
+				quality={90}
+				loading="eager"
+				decoding="async"
+			/>
 		</a>
 	) : (
-		<p class="brand">
-			<span class="brand-copy">
-				<span class="brand-name">Cámaras de Seguridad</span>
-				<span class="brand-place">San José</span>
-			</span>
+		<p class="brand brand-logo">
+			<Image
+				src={logo}
+				alt="Cámaras de Seguridad San José"
+				class="brand-logo-img"
+				widths={[280, 400, 520, 700]}
+				sizes="(min-width: 720px) 352px, 280px"
+				format="webp"
+				quality={90}
+				loading="lazy"
+				decoding="async"
+			/>
 		</p>
 	)
 }

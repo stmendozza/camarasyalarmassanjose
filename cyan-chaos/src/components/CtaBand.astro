@@ -12,7 +12,7 @@ interface Props {
 const {
 	title,
 	text,
-	primaryLabel = site.phoneDisplay,
+	primaryLabel = 'Escribir por WhatsApp',
 	secondaryHref = '/contacto',
 	secondaryLabel = 'Ir a contacto',
 } = Astro.props;
@@ -20,13 +20,19 @@ const {
 
 <section class="section cta-band">
 	<div class="wrap">
-		<h2>{title}</h2>
-		<p>{text}</p>
-		<div class="btn-row">
-			<a class="btn btn-wa" href={site.whatsappUrl} target="_blank" rel="noopener noreferrer">
-				{primaryLabel}
-			</a>
-			<a class="btn btn-ghost" href={secondaryHref}>{secondaryLabel}</a>
+		<div class="cta-shell glass-panel">
+			<p class="kicker">Siguiente paso</p>
+			<h2>{title}</h2>
+			<p>{text}</p>
+			<div class="btn-row">
+				<a class="btn btn-gold" href={site.whatsappUrl} target="_blank" rel="noopener noreferrer">
+					{primaryLabel}
+					<svg viewBox="0 0 16 16" width="14" height="14" aria-hidden="true">
+						<path d="M3 8h8M8 4l4 4-4 4" fill="none" stroke="currentColor" stroke-width="1.5"></path>
+					</svg>
+				</a>
+				<a class="btn btn-glass" href={secondaryHref}>{secondaryLabel}</a>
+			</div>
 		</div>
 	</div>
 </section>

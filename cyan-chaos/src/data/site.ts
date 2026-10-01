@@ -9,13 +9,22 @@ export const site = {
 	email: 'camarasyalarmassanjose@gmail.com',
 	city: 'San José del Guaviare',
 	region: 'Guaviare',
-	/** Capital primero. Confirmado por el cliente el 2026-09-25. */
+	/**
+	 * Capital primero. Confirmado por el cliente el 2026-09-25.
+	 * lat/lng = centro aproximado del municipio (referencia pública OSM) para el mapa de cobertura.
+	 */
 	serviceAreas: [
-		{ name: 'San José del Guaviare', slug: 'san-jose-del-guaviare', primary: true },
-		{ name: 'El Retorno', slug: 'el-retorno', primary: false },
-		{ name: 'Calamar', slug: 'calamar', primary: false },
-		{ name: 'Mapiripán', slug: 'mapiripan', primary: false },
-		{ name: 'Concordia', slug: 'concordia', primary: false },
+		{
+			name: 'San José del Guaviare',
+			slug: 'san-jose-del-guaviare',
+			primary: true,
+			lat: 2.5689,
+			lng: -72.6417,
+		},
+		{ name: 'El Retorno', slug: 'el-retorno', primary: false, lat: 2.3306, lng: -72.6275 },
+		{ name: 'Calamar', slug: 'calamar', primary: false, lat: 1.9597, lng: -72.6531 },
+		{ name: 'Mapiripán', slug: 'mapiripan', primary: false, lat: 2.8914, lng: -72.1331 },
+		{ name: 'Concordia', slug: 'concordia', primary: false, lat: 2.4167, lng: -72.5833 },
 	],
 	country: 'CO',
 	locale: 'es-CO',

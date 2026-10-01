@@ -1,5 +1,6 @@
 ---
 import BaseLayout from '../layouts/BaseLayout.astro';
+import CoverageMap from '../components/CoverageMap.astro';
 import PageHero from '../components/PageHero.astro';
 import CtaBand from '../components/CtaBand.astro';
 import { getPageMeta } from '../data/pages-meta';
@@ -18,30 +19,47 @@ const zones = (await getCollection('zones')).sort((a, b) => a.data.priority - b.
 		secondaryLabel="Contacto"
 	/>
 
+	<section class="section section-band">
+		<div class="wrap lp-coverage">
+			<div class="lp-coverage-copy">
+				<div class="section-head">
+					<p class="kicker">Zonas</p>
+					<h2>Dónde llegamos hoy</h2>
+					<p>
+						Estas son las zonas donde instalamos y damos soporte. San José del Guaviare es la
+						principal.
+					</p>
+				</div>
+				<ul class="lp-zones">
+					{
+						site.serviceAreas.map((area) => (
+							<li>
+								<button type="button" data-cov-focus={area.slug}>
+									{area.name}
+								</button>
+							</li>
+						))
+					}
+				</ul>
+			</div>
+			<CoverageMap id="coverage-map-page" />
+		</div>
+	</section>
+
 	<section class="section">
 		<div class="wrap">
-			<div class="section-head">
-				<p class="kicker">Zonas</p>
-				<h2>Dónde llegamos hoy</h2>
-				<p>
-					Estas son las zonas donde instalamos y damos soporte. San José del Guaviare es la principal.
-				</p>
-			</div>
 			<ul class="steps">
 				{
 					zones.map((zone) => (
 						<li id={zone.id}>
 							<strong>{zone.data.name}</strong>
-							<p>
-								{zone.data.description}
-							</p>
+							<p>{zone.data.description}</p>
 						</li>
 					))
 				}
 			</ul>
-			<p style="margin-top: 1.5rem">
+			<p class="page-links">
 				<a href="/instalacion">Instalación</a>
-				{' · '}
 				<a href="/contacto">Contacto</a>
 			</p>
 		</div>

@@ -1,29 +1,83 @@
 ---
 import Wordmark from './Wordmark.astro';
 import { site } from '../data/site';
-import { footerNav, headerNav } from '../data/navigation';
+import { headerNav, isNavGroup } from '../data/navigation';
 
 const currentPath = Astro.url.pathname.replace(/\/$/, '') || '/';
-const drawerNav = footerNav;
+
+const isActive = (href: string) => {
+	if (href.startsWith('/#')) return false;
+	return currentPath === href;
+};
+const groupActive = (items: { href: string }[]) => items.some((item) => isActive(item.href));
 ---
 
 <header class="site-header">
 	<div class="wrap bar">
-		<Wordmark href="/" mark />
+		<Wordmark href="/" />
 		<nav class="nav" aria-label="Principal">
 			{
-				headerNav.map((item) => (
-					<a href={item.href} aria-current={currentPath === item.href ? 'page' : undefined}>
-						{item.label}
-					</a>
-				))
+				headerNav.map((item) =>
+					isNavGroup(item) ? (
+						<div class:list={['nav-dd', groupActive(item.items) && 'is-active']}>
+							<button
+								class="nav-dd-btn"
+								type="button"
+								aria-expanded="false"
+								aria-haspopup="true"
+								aria-controls="nav-servicios"
+								id="navServiciosBtn"
+							>
+								{item.label}
+								<svg viewBox="0 0 12 12" width="10" height="10" aria-hidden="true">
+									<path
+										d="M2.5 4.5L6 8l3.5-3.5"
+										fill="none"
+										stroke="currentColor"
+										stroke-width="1.5"
+										stroke-linecap="round"
+									/>
+								</svg>
+							</button>
+							<div class="nav-dd-panel" id="nav-servicios" hidden>
+								{
+									item.items.map((sub) => (
+										<a href={sub.href} aria-current={isActive(sub.href) ? 'page' : undefined}>
+											{sub.label}
+										</a>
+									))
+								}
+							</div>
+						</div>
+					) : (
+						<a
+							href={item.href}
+							aria-current={isActive(item.href) ? 'page' : undefined}
+							class:list={[isActive(item.href) && 'is-active']}
+						>
+							{item.label}
+						</a>
+					),
+				)
 			}
 		</nav>
 		<button class="nav-toggle" type="button" aria-expanded="false" aria-controls="drawer" id="navBtn">
 			Menú
 		</button>
-		<a class="btn btn-wa" href={site.whatsappUrl} target="_blank" rel="noopener noreferrer" aria-label="WhatsApp">
-			<span class="wa-label">WhatsApp</span>
+		<a
+			class="btn btn-wa btn-wa-header"
+			href={site.whatsappUrl}
+			target="_blank"
+			rel="noopener noreferrer"
+			aria-label="Cotizar por WhatsApp"
+		>
+			<svg class="wa-ico" viewBox="0 0 24 24" width="16" height="16" aria-hidden="true">
+				<path
+					fill="currentColor"
+					d="M12.04 2c-5.5 0-9.96 4.4-9.96 9.84 0 1.74.47 3.43 1.36 4.92L2 22l5.4-1.4a10 10 0 0 0 4.64 1.14h.01c5.5 0 9.96-4.4 9.96-9.84S17.55 2 12.04 2zm5.8 14.14c-.24.68-1.4 1.25-1.93 1.33-.5.07-1.14.1-1.84-.12-.42-.13-.97-.32-1.67-.62-2.94-1.27-4.85-4.23-5-4.42-.14-.2-1.2-1.6-1.2-3.05s.76-2.16 1.03-2.46c.26-.3.57-.37.76-.37h.55c.17 0 .4-.07.63.48.24.56.8 1.94.87 2.08.07.14.12.3.02.48-.1.18-.14.3-.28.46-.14.16-.3.36-.42.48-.14.14-.28.29-.12.56.16.28.7 1.15 1.5 1.86 1.03.92 1.9 1.2 2.17 1.34.27.14.43.12.59-.07.16-.18.68-.79.86-1.06.18-.28.36-.23.61-.14.24.1 1.54.73 1.8.86.27.14.44.2.51.31.07.11.07.64-.17 1.32z"
+				/>
+			</svg>
+			<span class="wa-label">Cotizar</span>
 			<svg viewBox="0 0 16 16" width="14" height="14" aria-hidden="true">
 				<path d="M3 8h8M8 4l4 4-4 4" fill="none" stroke="currentColor" stroke-width="1.5"></path>
 			</svg>
@@ -32,19 +86,40 @@ const drawerNav = footerNav;
 	<div class="nav-drawer" id="drawer" hidden>
 		<nav aria-label="Secciones">
 			{
-				drawerNav.map((item) => (
-					<a href={item.href} aria-current={currentPath === item.href ? 'page' : undefined}>
-						{item.label}
-					</a>
-				))
+				headerNav.map((item) =>
+					isNavGroup(item) ? (
+						<details class="drawer-group">
+							<summary>{item.label}</summary>
+							{
+								item.items.map((sub) => (
+									<a href={sub.href} aria-current={isActive(sub.href) ? 'page' : undefined}>
+										{sub.label}
+									</a>
+								))
+							}
+						</details>
+					) : (
+						<a href={item.href} aria-current={isActive(item.href) ? 'page' : undefined}>
+							{item.label}
+						</a>
+					),
+				)
 			}
 		</nav>
 	</div>
 </header>
 
 <script>
+	const header = document.querySelector('.site-header');
 	const btn = document.getElementById('navBtn');
 	const drawer = document.getElementById('drawer');
+	const ddBtn = document.getElementById('navServiciosBtn');
+	const ddPanel = document.getElementById('nav-servicios');
+	const dd = ddBtn?.closest('.nav-dd');
+
+	const syncSolid = () => {
+		header?.classList.toggle('is-solid', window.scrollY > 24);
+	};
 
 	const setOpen = (open) => {
 		if (!drawer || !btn) return;
@@ -52,15 +127,51 @@ const drawerNav = footerNav;
 		drawer.hidden = !open;
 		btn.textContent = open ? 'Cerrar' : 'Menú';
 		btn.setAttribute('aria-expanded', String(open));
+		header?.classList.toggle('is-open', open);
+	};
+
+	const setDd = (open) => {
+		if (!ddBtn || !ddPanel || !dd) return;
+		dd.classList.toggle('open', open);
+		ddPanel.hidden = !open;
+		ddBtn.setAttribute('aria-expanded', String(open));
 	};
 
 	btn?.addEventListener('click', () => {
 		setOpen(btn.getAttribute('aria-expanded') !== 'true');
+		setDd(false);
+	});
+
+	ddBtn?.addEventListener('click', (event) => {
+		event.stopPropagation();
+		setDd(ddBtn.getAttribute('aria-expanded') !== 'true');
+	});
+
+	document.addEventListener('click', (event) => {
+		if (!dd?.contains(event.target)) setDd(false);
+	});
+
+	const closeMenus = () => {
+		setDd(false);
+		setOpen(false);
+	};
+
+	document.querySelectorAll('.site-header a[href*="#"]').forEach((link) => {
+		link.addEventListener('click', () => closeMenus());
 	});
 
 	document.addEventListener('keydown', (event) => {
-		if (event.key !== 'Escape' || !drawer || drawer.hidden) return;
+		if (event.key !== 'Escape') return;
+		if (dd && !ddPanel?.hidden) {
+			setDd(false);
+			ddBtn?.focus();
+			return;
+		}
+		if (!drawer || drawer.hidden) return;
 		setOpen(false);
 		btn?.focus();
 	});
+
+	syncSolid();
+	window.addEventListener('scroll', syncSolid, { passive: true });
 </script>

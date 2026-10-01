@@ -15,7 +15,7 @@ export const pagesMeta = {
 		slug: '',
 		title: `Cámaras y alarmas en ${city}`,
 		description: `Cámaras, alarmas e instalación en ${city}, capital del Guaviare. También El Retorno, Calamar, Mapiripán y Concordia. Cotiza por WhatsApp.`,
-		h1: 'Seguridad bien instalada, lista cuando la necesitas.',
+		h1: 'Seguridad que responde cuando más importa',
 	},
 	'camaras-de-seguridad': {
 		slug: 'camaras-de-seguridad',

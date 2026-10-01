@@ -17,7 +17,7 @@ const faqs = (await getCollection('faqs')).filter((entry) => entry.data.pageSlug
 		lead="Dejamos cámaras y alarmas listas para usar, con explicación de la app y soporte en San José del Guaviare."
 	/>
 
-	<section class="section">
+	<section class="section section-band">
 		<div class="wrap">
 			<div class="section-head">
 				<p class="kicker">Proceso</p>
@@ -42,11 +42,9 @@ const faqs = (await getCollection('faqs')).filter((entry) => entry.data.pageSlug
 					<p>Soporte técnico local y mantenimiento cuando lo necesites.</p>
 				</li>
 			</ol>
-			<p style="margin-top: 1.5rem">
+			<p class="page-links">
 				<a href="/camaras-de-seguridad">Cámaras</a>
-				{' · '}
 				<a href="/alarmas">Alarmas</a>
-				{' · '}
 				<a href="/mantenimiento">Mantenimiento</a>
 			</p>
 		</div>

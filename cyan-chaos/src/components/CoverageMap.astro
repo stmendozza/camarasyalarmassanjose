@@ -1,0 +1,102 @@
+---
+import { site } from '../data/site';
+
+interface Props {
+	id?: string;
+}
+
+const { id = 'coverage-map' } = Astro.props;
+const points = site.serviceAreas.map(({ name, slug, primary, lat, lng }) => ({
+	name,
+	slug,
+	primary,
+	lat,
+	lng,
+}));
+---
+
+<div
+	class="cov-map"
+	id={id}
+	data-points={JSON.stringify(points)}
+	role="region"
+	aria-label="Mapa de zonas de cobertura"
+>
+	<div class="cov-map-canvas" data-cov-canvas tabindex="0"></div>
+	<p class="cov-map-note">Pulsa una zona en la lista o un marcador para centrar el mapa.</p>
+</div>
+
+<link
+	rel="stylesheet"
+	href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css"
+	integrity="sha256-p4NxAoJBhIIN+hmNHrzRCf9tD/miZyoHS5obTRR9BMY="
+	crossorigin=""
+/>
+<script is:inline src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js" integrity="sha256-20nQCchB9co0qIjJZRGuk2/Z9VM+kNiyxNV1lvTlZBo=" crossorigin=""></script>
+<script is:inline define:vars={{ mapId: id }}>
+	(() => {
+		const root = document.getElementById(mapId);
+		const canvas = root?.querySelector('[data-cov-canvas]');
+		const Lref = window.L;
+		if (!root || !canvas || !Lref) return;
+
+		const points = JSON.parse(root.dataset.points || '[]');
+		const map = Lref.map(canvas, {
+			scrollWheelZoom: false,
+			attributionControl: true,
+		});
+
+		Lref.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {
+			attribution: '&copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a>',
+			maxZoom: 19,
+		}).addTo(map);
+
+		const markers = new Map();
+		const bounds = Lref.latLngBounds([]);
+
+		points.forEach((point) => {
+			const marker = Lref.circleMarker([point.lat, point.lng], {
+				radius: point.primary ? 10 : 8,
+				color: point.primary ? '#f0b429' : '#67e8f9',
+				weight: 2,
+				fillColor: point.primary ? '#f0b429' : '#3b82f6',
+				fillOpacity: 0.85,
+			})
+				.bindPopup(
+					`<strong>${point.name}</strong><br/><span>${
+						point.primary ? 'Base principal' : 'Zona de cobertura'
+					}</span>`,
+				)
+				.addTo(map);
+
+			markers.set(point.slug, marker);
+			bounds.extend([point.lat, point.lng]);
+		});
+
+		if (bounds.isValid()) {
+			map.fitBounds(bounds.pad(0.28));
+		}
+
+		const focusSlug = (slug) => {
+			const marker = markers.get(slug);
+			if (!marker) return;
+			map.setView(marker.getLatLng(), Math.max(map.getZoom(), 9), { animate: true });
+			marker.openPopup();
+		};
+
+		document.querySelectorAll('[data-cov-focus]').forEach((el) => {
+			el.addEventListener('click', () => {
+				const slug = el.getAttribute('data-cov-focus');
+				if (slug) focusSlug(slug);
+			});
+		});
+
+		window.addEventListener(
+			'resize',
+			() => {
+				map.invalidateSize();
+			},
+			{ passive: true },
+		);
+	})();
+</script>
