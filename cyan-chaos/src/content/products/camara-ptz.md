@@ -1,13 +1,15 @@
 ---
-name: Speed dome / PTZ
+name: Cámara PTZ (robótica 360°)
 type: ptz
-audience: negocio
+audience: ambos
 specs:
-  - label: Uso
-    value: Patios y áreas grandes
-  - label: Destacado
-    value: Cobertura amplia con movimiento
+  - label: Tecnología
+    value: IP, Wi-Fi o Solar
+  - label: Uso ideal
+    value: Grandes terrenos, bodegas, parqueaderos y fincas
+  - label: Función
+    value: Rotación panorámica 360°, zoom óptico y seguimiento automático de movimiento
 featured: false
 order: 3
-useCase: Patios y áreas amplias
+useCase: Grandes terrenos, bodegas, parqueaderos y fincas
 ---

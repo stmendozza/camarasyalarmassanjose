@@ -5,11 +5,11 @@ import ProductCard from '../components/ProductCard.astro';
 import FaqList from '../components/FaqList.astro';
 import CtaBand from '../components/CtaBand.astro';
 import { getPageMeta } from '../data/pages-meta';
-import { productTypeLabel } from '../data/product-labels';
+import { productTypeDetail, productTypeLabel } from '../data/product-labels';
 import { getCollection } from 'astro:content';
 
 const meta = getPageMeta('alarmas');
-const alarmTypes = ['panel', 'sensor-puerta', 'sensor-movimiento'] as const;
+const alarmTypes = ['panel', 'sensor-puerta', 'sirena', 'boton-panico'] as const;
 const products = (await getCollection('products'))
 	.filter((entry) => alarmTypes.includes(entry.data.type as (typeof alarmTypes)[number]))
 	.sort((a, b) => a.data.order - b.data.order);
@@ -20,22 +20,28 @@ const faqs = (await getCollection('faqs')).filter((entry) => entry.data.pageSlug
 	<PageHero
 		crumb="Alarmas"
 		h1={meta.h1}
-		lead="Sensores, paneles y alertas para proteger casa o local, con instalación y soporte en San José del Guaviare."
+		lead="Sensores, paneles de control y alertas en tiempo real a tu celular para proteger casa, local o finca. Incluye instalación profesional y soporte técnico en la zona."
 	/>
 
 	<section class="section section-band">
 		<div class="wrap">
 			<div class="section-head">
 				<p class="kicker">Equipos</p>
-				<h2>Qué incluye una alarma</h2>
-				<p>Panel de control y sensores de puerta o movimiento, según el espacio.</p>
+				<h2>¿Qué incluye tu kit de alarma?</h2>
+				<p>
+					Configuración adaptable con panel de control, sensores y elementos de disuasión inmediata
+					para cubrir cada punto de tu propiedad.
+				</p>
 			</div>
 			<div class="product-grid">
 				{
 					products.map((product) => (
 						<ProductCard
 							name={product.data.name}
-							typeLabel={productTypeLabel[product.data.type]}
+							typeLabel={
+								productTypeDetail[product.data.type as keyof typeof productTypeDetail] ??
+								productTypeLabel[product.data.type]
+							}
 							visual={productTypeLabel[product.data.type]}
 							specs={product.data.specs}
 						/>
@@ -49,16 +55,29 @@ const faqs = (await getCollection('faqs')).filter((entry) => entry.data.pageSlug
 		<div class="wrap">
 			<div class="section-head">
 				<p class="kicker">Uso</p>
-				<h2>Hogar o negocio</h2>
+				<h2>Hogar, negocio o finca</h2>
 			</div>
-			<div class="split">
+			<div class="package-grid">
 				<div class="panel">
 					<h3>En casa</h3>
-					<p>Puertas, ventanas y zonas de paso. Aviso cuando alguien abre un acceso o se mueve dentro.</p>
+					<p>
+						Protección en puertas, ventanas y pasillos. Alerta inmediata al celular si alguien
+						intenta abrir un acceso o si detecta movimiento interno.
+					</p>
 				</div>
 				<div class="panel">
-					<h3>En el local</h3>
-					<p>Accesos, bodega y áreas fuera de horario. Se combina con cámaras si quieres ver qué pasó.</p>
+					<h3>En el negocio</h3>
+					<p>
+						Resguardo de vitrinas, accesos principales y bodegas fuera de horario. Integración
+						directa con cámaras para verificación visual en tiempo real.
+					</p>
+				</div>
+				<div class="panel">
+					<h3>En la finca</h3>
+					<p>
+						Seguridad para casas campestres, casetas y herramientas. Sistemas autónomos con
+						sirena disuasiva y alerta remota vía red celular.
+					</p>
 				</div>
 			</div>
 			<p class="page-links">

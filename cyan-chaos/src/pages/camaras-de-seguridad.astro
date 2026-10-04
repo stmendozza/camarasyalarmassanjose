@@ -5,11 +5,11 @@ import ProductCard from '../components/ProductCard.astro';
 import FaqList from '../components/FaqList.astro';
 import CtaBand from '../components/CtaBand.astro';
 import { getPageMeta } from '../data/pages-meta';
-import { productTypeLabel } from '../data/product-labels';
+import { productTypeDetail, productTypeLabel } from '../data/product-labels';
 import { getCollection } from 'astro:content';
 
 const meta = getPageMeta('camaras-de-seguridad');
-const cameraTypes = ['bala', 'domo', 'ptz'] as const;
+const cameraTypes = ['bala', 'domo', 'ptz', 'wifi'] as const;
 const products = (await getCollection('products'))
 	.filter((entry) => cameraTypes.includes(entry.data.type as (typeof cameraTypes)[number]))
 	.sort((a, b) => a.data.order - b.data.order);
@@ -25,21 +25,23 @@ const faqs = (await getCollection('faqs')).filter((entry) =>
 		<div class="wrap">
 			<div class="section-head">
 				<p class="kicker">Equipos</p>
-				<h2>Tipos de cámara</h2>
-				<p>Bala, domo y PTZ — te ayudamos a elegir según el espacio.</p>
+				<h2>Soluciones y tipos de cámara</h2>
+				<p>
+					Te asesoramos para elegir la tecnología ideal: cámaras bala, domo, robóticas PTZ, sistemas IP,
+					Wi-Fi o con paneles solares.
+				</p>
 			</div>
 			<div class="product-grid">
 				{
 					products.map((product) => (
 						<ProductCard
 							name={product.data.name}
-							typeLabel={productTypeLabel[product.data.type]}
-							visual={productTypeLabel[product.data.type]}
-							specs={
-								product.data.useCase
-									? [{ label: 'Ideal', value: product.data.useCase }]
-									: product.data.specs
+							typeLabel={
+								productTypeDetail[product.data.type as keyof typeof productTypeDetail] ??
+								productTypeLabel[product.data.type]
 							}
+							visual={productTypeLabel[product.data.type]}
+							specs={product.data.specs}
 						/>
 					))
 				}
@@ -51,22 +53,29 @@ const faqs = (await getCollection('faqs')).filter((entry) =>
 		<div class="wrap">
 			<div class="section-head">
 				<p class="kicker">Públicos</p>
-				<h2>Hogar y negocio</h2>
-				<p>Misma calidad de equipo; distinta recomendación de uso.</p>
+				<h2>Hogar, negocio o finca</h2>
+				<p>Misma calidad de equipos; recomendación técnica personalizada según el espacio.</p>
 			</div>
-			<div class="split">
+			<div class="package-grid">
 				<div class="panel" id="hogar">
 					<h3>Para el hogar</h3>
 					<p>
-						Entradas, patios y zonas comunes. App para ver en vivo y alarmas con sensores de puerta y
-						movimiento.
+						Entradas, patios, garajes y áreas comunes. Monitoreo en vivo desde la app y grabación
+						continua para la tranquilidad de tu familia.
 					</p>
 				</div>
 				<div class="panel" id="negocios">
 					<h3>Para el negocio</h3>
 					<p>
-						Inventario, caja y accesos. Cobertura diurna y nocturna, y mantenimiento para no interrumpir
-						la operación.
+						Caja, inventario, vitrinas y accesos. Cobertura nocturna de alta definición para
+						supervisar la operación y proteger tus activos.
+					</p>
+				</div>
+				<div class="panel" id="finca">
+					<h3>Para la finca</h3>
+					<p>
+						Linderos, casetas, potreros y portones. Soluciones autónomas con paneles solares y
+						conexión 4G para zonas sin energía ni internet fijo.
 					</p>
 				</div>
 			</div>

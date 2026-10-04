@@ -9,4 +9,4 @@ pageSlugs:
 order: 2
 ---
 
-Sí. El monitoreo en vivo desde el celular viene con app incluida, como en el material de la marca.
+Totalmente. Dejamos la aplicación configurada en tu celular y te enseñamos a usarla para monitorear en vivo desde cualquier lugar.

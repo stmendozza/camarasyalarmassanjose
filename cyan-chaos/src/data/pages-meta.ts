@@ -15,7 +15,7 @@ export const pagesMeta = {
 		slug: '',
 		title: `Cámaras y alarmas en ${city}`,
 		description: `Cámaras, alarmas e instalación en ${city}, capital del Guaviare. También El Retorno, Calamar, Mapiripán y Concordia. Cotiza por WhatsApp.`,
-		h1: 'Seguridad que responde cuando más importa',
+		h1: 'Seguridad inteligente y monitoreo 24/7 sin importar dónde estés',
 	},
 	'camaras-de-seguridad': {
 		slug: 'camaras-de-seguridad',
@@ -26,7 +26,7 @@ export const pagesMeta = {
 	alarmas: {
 		slug: 'alarmas',
 		title: `Alarmas inteligentes en ${city}`,
-		description: `Alarmas con sensores y panel para hogar y negocio en ${city}. Instalación incluida y soporte en la ciudad.`,
+		description: `Sensores, paneles de control y alertas en tiempo real a tu celular para proteger casa, local o finca en ${city}. Instalación profesional y soporte técnico en la zona.`,
 		h1: `Alarmas inteligentes en ${city}`,
 	},
 	instalacion: {
@@ -73,9 +73,9 @@ export const pagesMeta = {
 	},
 	contacto: {
 		slug: 'contacto',
-		title: `Contacto y cotización en ${city}`,
-		description: `Cotiza cámaras y alarmas por WhatsApp ${site.phoneDisplay} o deja tus datos. Atención en ${city}.`,
-		h1: 'Contacto y cotización',
+		title: `Contacto y cotización inmediata en ${city}`,
+		description: `Escríbenos por WhatsApp para asesoría personalizada, dudas técnicas o agendar una visita en hogar, negocio o finca en ${city}. Respuesta rápida el mismo día.`,
+		h1: 'Contacto y cotización inmediata',
 	},
 } as const satisfies Record<string, PageMeta>;
 

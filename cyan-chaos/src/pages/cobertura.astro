@@ -24,10 +24,10 @@ const zones = (await getCollection('zones')).sort((a, b) => a.data.priority - b.
 			<div class="lp-coverage-copy">
 				<div class="section-head">
 					<p class="kicker">Zonas</p>
-					<h2>Dónde llegamos hoy</h2>
+					<h2>Cobertura y atención regional</h2>
 					<p>
-						Estas son las zonas donde instalamos y damos soporte. San José del Guaviare es la
-						principal.
+						Instalación profesional y soporte técnico directo en San José del Guaviare y municipios
+						aledaños. Cobertura garantizada para cascos urbanos, veredas y zonas rurales.
 					</p>
 				</div>
 				<ul class="lp-zones">
@@ -35,7 +35,7 @@ const zones = (await getCollection('zones')).sort((a, b) => a.data.priority - b.
 						site.serviceAreas.map((area) => (
 							<li>
 								<button type="button" data-cov-focus={area.slug}>
-									{area.name}
+									{area.primary ? `${area.name} (Sede principal)` : area.name}
 								</button>
 							</li>
 						))
