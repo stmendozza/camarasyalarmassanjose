@@ -151,20 +151,20 @@ export const landingSystems = [
 export const landingAudiences = [
 	{
 		href: '/hogar',
-		title: 'Hogar',
+		title: 'Para el hogar',
 		icon: 'home' as const,
-		lead: 'Entradas, patios y zonas comunes. Seguridad familiar con app en el celular.',
+		lead: 'Protección en entradas, patios y pasillos. Monitoreo en vivo desde la app con sensores de movimiento y apertura para cuidar a tu familia.',
 	},
 	{
 		href: '/negocios',
-		title: 'Negocio',
+		title: 'Para el negocio o local',
 		icon: 'store' as const,
-		lead: 'Tiendas, talleres y oficinas. Inventario, caja y accesos bajo control.',
+		lead: 'Resguardo de cajas, inventario y accesos clave. Visión nocturna clara y soporte continuo para garantizar que tu sistema opere sin interrupciones.',
 	},
 	{
-		href: '/sistemas-de-seguridad',
-		title: 'Empresa',
+		href: '/camaras-de-seguridad#finca',
+		title: 'Para fincas y propiedades rurales',
 		icon: 'building' as const,
-		lead: 'Sistemas a la medida del espacio. Alcance definido al cotizar por WhatsApp.',
+		lead: 'Cobertura de perímetros amplios, portones y zonas exteriores. Opciones de cámaras PTZ robóticas 360°, alimentación solar y conectividad 4G/Wi-Fi sin necesidad de cableado complejo.',
 	},
 ] as const;

@@ -24,18 +24,18 @@ const stripItems = [
 const processSteps = [
 	{
 		icon: 'chat' as const,
-		title: 'Escribes por WhatsApp',
-		text: 'Nos cuentas casa o negocio, y qué quieres cuidar.',
+		title: 'Consulta inicial',
+		text: 'Nos escribes por WhatsApp y nos explicas las zonas que quieres monitorear.',
 	},
 	{
 		icon: 'plan' as const,
-		title: 'Proponemos el alcance',
-		text: 'Cámaras, alarmas o ambos — según el espacio real.',
+		title: 'Diseño de la solución',
+		text: 'Te sugerimos el kit exacto de cámaras o alarmas que realmente necesitas.',
 	},
 	{
 		icon: 'ready' as const,
-		title: 'Instalamos y te dejamos listo',
-		text: 'Montaje, app y prueba en sitio. Soporte local después.',
+		title: 'Montaje y entrega',
+		text: 'Instalamos los equipos, configuramos la app en tu celular y te dejamos todo probado.',
 	},
 ];
 ---
@@ -121,11 +121,15 @@ const processSteps = [
 		</div>
 	</section>
 
-	<section class="lp-section lp-section-alt" id="para-quien">
+	<section class="lp-section lp-section-alt" id="publicos">
 		<div class="wrap">
 			<header class="lp-head">
-				<h2>Para quién</h2>
-				<p>Misma calidad de equipo. Distinta recomendación según el uso.</p>
+				<p class="kicker">Públicos</p>
+				<h2>Soluciones para hogar, negocio y fincas</h2>
+				<p>
+					Sistemas de seguridad diseñados y parametrizados según las dimensiones y la infraestructura
+					de cada lugar.
+				</p>
 			</header>
 			<div class="lp-audience">
 				{
@@ -156,8 +160,8 @@ const processSteps = [
 		</div>
 		<div class="wrap">
 			<header class="lp-head">
-				<h2>De la consulta al sistema listo</h2>
-				<p>Un flujo corto. Sin visitas de venta interminables.</p>
+				<h2>¿Cómo trabajamos?</h2>
+				<p>Un proceso ágil, sin complicaciones ni demoras.</p>
 			</header>
 			<ol class="lp-process">
 				{
